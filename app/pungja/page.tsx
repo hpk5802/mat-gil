@@ -1,4 +1,5 @@
 import axios from 'axios';
+import ListContainer from '@/app/components/lists/ListContainer';
 
 async function page() {
   const {
@@ -9,13 +10,7 @@ async function page() {
     },
   });
 
-  return (
-    <div>
-      {lists.map((list: any) => (
-        <div key={list.snippet.title}>{list.snippet.title}</div>
-      ))}
-    </div>
-  );
+  return <ListContainer lists={lists} />;
 }
 
 export default page;
