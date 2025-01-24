@@ -1,14 +1,10 @@
-import axios from 'axios';
+import axios from '@/app/lib/instance';
 import ListContainer from '@/app/components/lists/ListContainer';
 
 async function page() {
   const {
     data: { lists },
-  } = await axios.get(`${process.env.NEXT_PUBLIC_BASE_URL}/api/pungja`, {
-    params: {
-      limit: 10,
-    },
-  });
+  } = await axios.get('pungja');
 
   return <ListContainer lists={lists} />;
 }
