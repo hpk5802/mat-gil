@@ -6,7 +6,7 @@ function Card({ lists }: { lists: YoutubeData[] }) {
   return lists.map((list) => (
     <div
       key={list.id}
-      className="w-[48.5%] md:w-[32%] border md:border-none border-gray-300 md:shadow-card rounded-lg overflow-hidden text-white"
+      className="w-[48.5%] md:w-[32%] md:border-none border-gray-300 shadow-card rounded-lg overflow-hidden text-white"
     >
       <Link href={`/ssg/${list.position}`}>
         <div className="relative w-full aspect-[1.75/1]">
