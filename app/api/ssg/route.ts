@@ -23,14 +23,28 @@ export async function GET(request: Request): Promise<Response> {
 
     const url = new URL(request.url);
     const limitParam = url.searchParams.get('limit');
-    const limit = limitParam ? parseInt(limitParam, 10) : data.length;
+    const cursorParam = url.searchParams.get('cursor');
 
-    const limitedData = data.slice(0, limit);
+    const limit = limitParam ? parseInt(limitParam, 10) : 10;
+    const cursor = cursorParam ? parseInt(cursorParam, 10) : null;
 
-    return new Response(JSON.stringify({ success: true, lists: limitedData }), {
-      status: 200,
-      headers: { 'Content-Type': 'application/json' },
-    });
+    // cursor가 있으면 해당 position 이후 데이터 필터링
+    const filteredData =
+      cursor !== null ? data.filter((item) => item.position > cursor) : data;
+
+    // 제한된 개수만큼 데이터 가져오기
+    const limitedData = filteredData.slice(0, limit);
+
+    // hasNext 설정 (더 가져올 데이터가 있는지 확인)
+    const hasNext = filteredData.length > limit;
+
+    return new Response(
+      JSON.stringify({ success: true, lists: limitedData, hasNext }),
+      {
+        status: 200,
+        headers: { 'Content-Type': 'application/json' },
+      },
+    );
   } catch (error) {
     console.error('데이터를 받아오는 중 에러가 발생했습니다:', error);
     return new Response(
