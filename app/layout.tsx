@@ -23,7 +23,7 @@ export default function RootLayout({
   return (
     <html lang="ko">
       <body
-        className={`${bagelFatOne.variable} antialiased bg-brand-background`}
+        className={`${bagelFatOne.variable} antialiased bg-brand-background pt-14`}
       >
         <Header />
         {children}

@@ -13,6 +13,7 @@ export default {
         foreground: 'var(--foreground)',
         // 'brand-background': '#3E4A59',
         'brand-background': '#141414',
+        'brand-background-opacity': 'rgba(20,20,20,0.9)',
       },
       fontSize: {
         '4xl': ['2.5rem', { lineHeight: '3rem' }], // 40px / 48px
