@@ -3,10 +3,10 @@ import ListContainer from '../components/lists/ListContainer';
 
 async function page() {
   const {
-    data: { lists },
-  } = await await axios.get('hsc');
+    data: { lists, hasNext },
+  } = await axios.get('hsc');
 
-  return <ListContainer lists={lists} />;
+  return <ListContainer channel="hsc" hasNext={hasNext} lists={lists} />;
 }
 
 export default page;
