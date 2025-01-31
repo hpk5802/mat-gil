@@ -1,0 +1,36 @@
+import { useCallback, useState } from 'react';
+import { YoutubeData } from '../types/youtube';
+import axios from '@/app/lib/instance';
+import useIntersectionObserver from '@/app/hooks/useIntersectionObserver';
+
+const useFetchData = (
+  channel: string,
+  initialLists: YoutubeData[],
+  initialHasNext: boolean,
+) => {
+  const [lists, setLists] = useState<YoutubeData[]>(initialLists);
+  const [cursor, setCursor] = useState(
+    initialLists[initialLists.length - 1].position,
+  );
+  const [hasNext, setHasNext] = useState(initialHasNext);
+
+  const fetchData = useCallback(async () => {
+    if (!hasNext) return;
+
+    const { data } = await axios.get(channel, {
+      params: { cursor },
+    });
+
+    setLists((prev) => [...prev, ...data.lists]);
+    setCursor(
+      data.lists.length > 0 ? data.lists[data.lists.length - 1].position : null,
+    );
+    setHasNext(data.hasNext);
+  }, [cursor, hasNext, channel]);
+
+  const endRef = useIntersectionObserver(fetchData, hasNext);
+
+  return { lists, hasNext, endRef };
+};
+
+export default useFetchData;
