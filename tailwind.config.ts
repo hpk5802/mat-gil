@@ -14,6 +14,10 @@ export default {
         'brand-background': '#141414',
         'brand-background-opacity': 'rgba(20,20,20,0.9)',
         'card-background': '#333333',
+        // tag: {
+        'active-bg': '#ffffff',
+        'active-text': '#141414',
+        // },
       },
       fontSize: {
         '4xl': ['2.5rem', { lineHeight: '3rem' }], // 40px / 48px
