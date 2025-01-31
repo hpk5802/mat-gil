@@ -14,6 +14,10 @@
   }
 }
 
+.bagel-font {
+  font-family: var(--font-bagel-fat-one), sans-serif;
+}
+
 body {
   color: var(--foreground);
   background: var(--background);
