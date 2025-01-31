@@ -4,17 +4,22 @@ import Link from 'next/link';
 
 function Card({ lists }: { lists: YoutubeData[] }) {
   return lists.map((list) => (
-    <div key={list.id} className="w-[48.5%]">
+    <div
+      key={list.id}
+      className="w-[48.5%] shadow-card rounded-lg overflow-hidden text-white"
+    >
       <Link href={`/ssg/${list.position}`}>
-        <div className="relative w-full h-44 mb-2 rounded-lg overflow-hidden pb-2">
+        <div className="relative w-full h-44">
           <Image
             src={list.thumbnailUrl}
-            className="object-cover"
+            className="object-cover -translate-y-0.5"
             fill
             alt="thumbnail"
           />
         </div>
-        <h3 className="text-md line-clamp-2 h-12">{list.title}</h3>
+        <div className="p-2">
+          <h3 className="text-md line-clamp-2 h-8">{list.title}</h3>
+        </div>
       </Link>
     </div>
   ));

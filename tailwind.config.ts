@@ -11,7 +11,6 @@ export default {
       colors: {
         background: 'var(--background)',
         foreground: 'var(--foreground)',
-        // 'brand-background': '#3E4A59',
         'brand-background': '#141414',
         'brand-background-opacity': 'rgba(20,20,20,0.9)',
       },
@@ -25,6 +24,9 @@ export default {
         md: ['0.875rem', { lineHeight: '1.0625rem' }], // 14px / 17px
         sm: ['0.8125rem', { lineHeight: '1rem' }], // 13px / 16px
         xs: ['0.75rem', { lineHeight: '0.875rem' }], // 12px / 14px
+      },
+      boxShadow: {
+        card: '0.25rem 0.25rem 0.375rem rgba(255, 255, 255, 0.2)',
       },
     },
   },
