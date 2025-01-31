@@ -1,33 +1,39 @@
 import path from 'path';
 import { promises as fs } from 'fs';
-import { RawYoutubeData, YoutubeData } from '@/app/types/youtube';
+
+interface YoutubeData {
+  id: string;
+  title: string;
+  url: string;
+  position: number;
+}
 
 export async function GET(request: Request): Promise<Response> {
   try {
     // JSON 파일 경로 설정
-    const filePath = path.join(process.cwd(), 'data', 'pungja.json');
+    const filePath = path.join(process.cwd(), 'data', 'seongsigyeong.json');
 
     // 파일 읽기
     const fileContents = await fs.readFile(filePath, 'utf-8');
 
     // JSON 파싱
-    const rawData: RawYoutubeData[] = JSON.parse(fileContents);
+    // const data: YoutubeData[] = JSON.parse(fileContents);
 
-    // 필요한 데이터만 추출
-    const data: YoutubeData[] = rawData.map((item) => ({
-      id: item.id,
-      position: item.snippet.position,
+    const rawData = JSON.parse(fileContents);
+    const data: YoutubeData[] = rawData.map((item: any) => ({
+      id: item.snippet.resourceId.videoId,
       title: item.snippet.title,
-      thumbnailUrl: item.snippet.thumbnails.high.url,
+      url: `https://www.youtube.com/watch?v=${item.snippet.resourceId.videoId}`,
+      position: item.snippet.position,
+      description: item.snippet.description,
     }));
 
     const url = new URL(request.url);
-    const limitParam = url.searchParams.get('limit');
-    const limit = limitParam ? parseInt(limitParam, 12) : data.length;
+    const id = url.pathname.split('/').pop();
 
-    const limitedData = data.slice(0, limit);
+    const target = data.find((item) => item.position === Number(id));
 
-    return new Response(JSON.stringify({ success: true, lists: limitedData }), {
+    return new Response(JSON.stringify({ success: true, list: target }), {
       status: 200,
       headers: { 'Content-Type': 'application/json' },
     });

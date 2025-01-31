@@ -1,21 +1,12 @@
-import axios from 'axios';
+import axios from '@/app/lib/instance';
+import ListContainer from '../components/lists/ListContainer';
 
 async function page() {
   const {
     data: { lists },
-  } = await axios.get(`${process.env.NEXT_PUBLIC_BASE_URL}/api/hsc`, {
-    params: {
-      limit: 10,
-    },
-  });
+  } = await await axios.get('hsc');
 
-  return (
-    <div>
-      {lists.map((list: any) => (
-        <div key={list.snippet.title}>{list.snippet.title}</div>
-      ))}
-    </div>
-  );
+  return <ListContainer lists={lists} />;
 }
 
 export default page;

@@ -1,11 +1,6 @@
 import path from 'path';
 import { promises as fs } from 'fs';
-
-interface YoutubeData {
-  id: string;
-  title: string;
-  url: string;
-}
+import { RawYoutubeData, YoutubeData } from '@/app/types/youtube';
 
 export async function GET(request: Request): Promise<Response> {
   try {
@@ -16,11 +11,19 @@ export async function GET(request: Request): Promise<Response> {
     const fileContents = await fs.readFile(filePath, 'utf-8');
 
     // JSON 파싱
-    const data: YoutubeData[] = JSON.parse(fileContents);
+    const rawData: RawYoutubeData[] = JSON.parse(fileContents);
+
+    // 필요한 데이터만 추출
+    const data: YoutubeData[] = rawData.map((item) => ({
+      id: item.id,
+      position: item.snippet.position,
+      title: item.snippet.title,
+      thumbnailUrl: item.snippet.thumbnails.high.url,
+    }));
 
     const url = new URL(request.url);
     const limitParam = url.searchParams.get('limit');
-    const limit = limitParam ? parseInt(limitParam, 10) : data.length;
+    const limit = limitParam ? parseInt(limitParam, 12) : data.length;
 
     const limitedData = data.slice(0, limit);
 
