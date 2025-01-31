@@ -6,7 +6,7 @@ async function page() {
     data: { lists },
   } = await await axios.get('hsc');
 
-  return <ListContainer lists={lists} />;
+  return <ListContainer channel="hsc" lists={lists} />;
 }
 
 export default page;
