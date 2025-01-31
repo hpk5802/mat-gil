@@ -23,7 +23,7 @@ export async function GET(request: Request): Promise<Response> {
 
     const url = new URL(request.url);
     const limitParam = url.searchParams.get('limit');
-    const limit = limitParam ? parseInt(limitParam, 12) : data.length;
+    const limit = limitParam ? parseInt(limitParam, 10) : data.length;
 
     const limitedData = data.slice(0, limit);
 
