@@ -6,8 +6,8 @@ function Header() {
     <header className="bg-brand-background flex">
       <h1>
         <Link href="/" className="flex items-center">
-          <Logo className="w-10 h-10" />
-          <span className="text-xl text-white font-bold">맛길</span>
+          <Logo className="w-12 h-12" />
+          <span className="text-2xl text-white bagel-font">맛길</span>
         </Link>
       </h1>
     </header>
