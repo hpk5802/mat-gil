@@ -12,7 +12,7 @@ const tags = [
     path: '/hsc',
   },
   {
-    title: '줄서는 맛집 | 입짧은 햇님',
+    title: '줄서는 식당 | 입짧은 햇님',
     path: '/hnim',
   },
   {
