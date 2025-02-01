@@ -5,6 +5,7 @@ import Logo from '@/app/components/icons/Logo';
 import Tag from '@/app/components/common/Tag';
 import { usePathname } from 'next/navigation';
 import tags from '@/app/constants/tags';
+import TagContainer from '@/app/components/TagContainer';
 
 function Header() {
   const path = usePathname();
@@ -22,15 +23,17 @@ function Header() {
         </h1>
       </div>
       <div className="flex gap-2 max-w-[75rem] mx-auto px-3 md:px-5 mt-3">
-        {tags.map((tag) => (
-          <Tag
-            key={`tag_${tag.title}`}
-            href={tag.path}
-            isActive={tag.path === path}
-          >
-            {tag.title}
-          </Tag>
-        ))}
+        <TagContainer>
+          {tags.map((tag) => (
+            <Tag
+              key={`tag_${tag.title}`}
+              href={tag.path}
+              isActive={tag.path === path}
+            >
+              {tag.title}
+            </Tag>
+          ))}
+        </TagContainer>
       </div>
     </header>
   );
