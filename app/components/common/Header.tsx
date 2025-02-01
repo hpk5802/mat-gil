@@ -4,21 +4,7 @@ import Link from 'next/link';
 import Logo from '@/app/components/icons/Logo';
 import Tag from '@/app/components/common/Tag';
 import { usePathname } from 'next/navigation';
-
-const tags = [
-  {
-    title: '또간집',
-    path: '/pungja',
-  },
-  {
-    title: '먹을텐데',
-    path: '/ssg',
-  },
-  {
-    title: '미식은 경험이다',
-    path: '/hsc',
-  },
-];
+import tags from '@/app/constants/tags';
 
 function Header() {
   const path = usePathname();
