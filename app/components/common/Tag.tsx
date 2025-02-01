@@ -10,7 +10,7 @@ function Tag({ children, href, isActive }: PropsWithChildren<TagInteface>) {
   return (
     <Link
       href={href}
-      className={`px-2 py-1 border border-white rounded-full text-xs md:text-md md:px-3 md:py-1.5 ${
+      className={`px-2 py-1.5 border border-white rounded-full flex-shrink-0 text-xs md:text-md md:px-3 ${
         isActive
           ? 'bg-active-bg text-active-text font-semibold cursor-not-allowed'
           : 'text-white'
