@@ -1,0 +1,801 @@
+[
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "pUMVXCfEVuTsB6yTksVRlw2WhoA",
+    "id": "UEx2RGFvRWRIYzY4NjVkcDAzVWxyRU51d3ROYlJoTFZtZi41NkI0NEY2RDEwNTU3Q0M2",
+    "snippet": {
+      "publishedAt": "2023-10-20T05:17:59Z",
+      "channelId": "UCRMA_Nb5VF-YoWApSVeXPVA",
+      "title": "이연복 셰프의 입맛도 사로잡은 줄식당의 한우 대창 덮밥🍚 대창 마니아 입짧은햇님의 눈에서도 하트 뿅뿅~😍 | 줄서는식당",
+      "description": "tvN 레전드 예능 끌어~ 올려↗↗ #끌올 \n\n방송국놈들의 하드털이 채널 '디글 클래식'\nwe’re :DIGGLE family",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/4E3o7ix38bA/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/4E3o7ix38bA/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/4E3o7ix38bA/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/4E3o7ix38bA/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/4E3o7ix38bA/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "디글 클래식 :Diggle Classic",
+      "playlistId": "PLvDaoEdHc6865dp03UlrENuwtNbRhLVmf",
+      "position": 0,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "4E3o7ix38bA"
+      },
+      "videoOwnerChannelTitle": "디글 클래식 :Diggle Classic",
+      "videoOwnerChannelId": "UCRMA_Nb5VF-YoWApSVeXPVA"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "5CIgqyImgJwmSoS_OhBpssP9cKk",
+    "id": "UEx2RGFvRWRIYzY4NjVkcDAzVWxyRU51d3ROYlJoTFZtZi4yODlGNEE0NkRGMEEzMEQy",
+    "snippet": {
+      "publishedAt": "2023-10-20T05:17:59Z",
+      "channelId": "UCRMA_Nb5VF-YoWApSVeXPVA",
+      "title": "평범한 포차가 아니다! 얼얼~하게 탈바꿈한 홍콩식 포차의 마라 전골🍲 음식과 분위기 모두 후끈후끈🔥 | 줄서는식당",
+      "description": "tvN 레전드 예능 끌어~ 올려↗↗ #끌올 \n\n방송국놈들의 하드털이 채널 '디글 클래식'\nwe’re :DIGGLE family",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/_GJOSbh7fZQ/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/_GJOSbh7fZQ/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/_GJOSbh7fZQ/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/_GJOSbh7fZQ/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/_GJOSbh7fZQ/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "디글 클래식 :Diggle Classic",
+      "playlistId": "PLvDaoEdHc6865dp03UlrENuwtNbRhLVmf",
+      "position": 1,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "_GJOSbh7fZQ"
+      },
+      "videoOwnerChannelTitle": "디글 클래식 :Diggle Classic",
+      "videoOwnerChannelId": "UCRMA_Nb5VF-YoWApSVeXPVA"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "foOKNVUBZCSzrOpXmuZkgZfRAP0",
+    "id": "UEx2RGFvRWRIYzY4NjVkcDAzVWxyRU51d3ROYlJoTFZtZi4wMTcyMDhGQUE4NTIzM0Y5",
+    "snippet": {
+      "publishedAt": "2023-10-20T05:17:59Z",
+      "channelId": "UCRMA_Nb5VF-YoWApSVeXPVA",
+      "title": "맛.집.보.장👌 이영자 사인과 글까지 적혀 있는 간장 모둠 해물장 맛집! 이거 완전 밥 도둑이잖아🥄 | 줄서는식당",
+      "description": "tvN 레전드 예능 끌어~ 올려↗↗ #끌올 \n\n방송국놈들의 하드털이 채널 '디글 클래식'\nwe’re :DIGGLE family",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/j88kxieJdmQ/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/j88kxieJdmQ/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/j88kxieJdmQ/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/j88kxieJdmQ/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/j88kxieJdmQ/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "디글 클래식 :Diggle Classic",
+      "playlistId": "PLvDaoEdHc6865dp03UlrENuwtNbRhLVmf",
+      "position": 2,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "j88kxieJdmQ"
+      },
+      "videoOwnerChannelTitle": "디글 클래식 :Diggle Classic",
+      "videoOwnerChannelId": "UCRMA_Nb5VF-YoWApSVeXPVA"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "iro0u4jfomy8c_ID9VRy5yA1RJM",
+    "id": "UEx2RGFvRWRIYzY4NjVkcDAzVWxyRU51d3ROYlJoTFZtZi41MjE1MkI0OTQ2QzJGNzNG",
+    "snippet": {
+      "publishedAt": "2023-10-20T05:17:59Z",
+      "channelId": "UCRMA_Nb5VF-YoWApSVeXPVA",
+      "title": "이거 어디까지 늘어나는 거예↗요↘? 푸짐한 치즈와 쫄깃한 집게살까지 올라간 랍스터 피자! 햇님 눈 돌아간다~😵 | 줄서는식당",
+      "description": "tvN 레전드 예능 끌어~ 올려↗↗ #끌올 \n\n방송국놈들의 하드털이 채널 '디글 클래식'\nwe’re :DIGGLE family",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/u7wPUv7YaFY/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/u7wPUv7YaFY/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/u7wPUv7YaFY/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/u7wPUv7YaFY/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/u7wPUv7YaFY/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "디글 클래식 :Diggle Classic",
+      "playlistId": "PLvDaoEdHc6865dp03UlrENuwtNbRhLVmf",
+      "position": 3,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "u7wPUv7YaFY"
+      },
+      "videoOwnerChannelTitle": "디글 클래식 :Diggle Classic",
+      "videoOwnerChannelId": "UCRMA_Nb5VF-YoWApSVeXPVA"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "-T1doWtVBR98o1wd4Ikl7OKl4XE",
+    "id": "UEx2RGFvRWRIYzY4NjVkcDAzVWxyRU51d3ROYlJoTFZtZi4wOTA3OTZBNzVEMTUzOTMy",
+    "snippet": {
+      "publishedAt": "2023-10-20T05:41:38Z",
+      "channelId": "UCRMA_Nb5VF-YoWApSVeXPVA",
+      "title": "자장면 하나에 3만 원?! 그 비싸다는 트러플로 적셔진(?) 호화스러운 스테이크 자장면🍜 | 줄서는식당",
+      "description": "tvN 레전드 예능 끌어~ 올려↗↗ #끌올 \n\n방송국놈들의 하드털이 채널 '디글 클래식'\nwe’re :DIGGLE family",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/Hv4iLthMy5c/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/Hv4iLthMy5c/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/Hv4iLthMy5c/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/Hv4iLthMy5c/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/Hv4iLthMy5c/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "디글 클래식 :Diggle Classic",
+      "playlistId": "PLvDaoEdHc6865dp03UlrENuwtNbRhLVmf",
+      "position": 4,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "Hv4iLthMy5c"
+      },
+      "videoOwnerChannelTitle": "디글 클래식 :Diggle Classic",
+      "videoOwnerChannelId": "UCRMA_Nb5VF-YoWApSVeXPVA"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "WlbUPWYa015a4qhY1YyAR_Fq5Xc",
+    "id": "UEx2RGFvRWRIYzY4NjVkcDAzVWxyRU51d3ROYlJoTFZtZi4xMkVGQjNCMUM1N0RFNEUx",
+    "snippet": {
+      "publishedAt": "2023-10-20T05:41:38Z",
+      "channelId": "UCRMA_Nb5VF-YoWApSVeXPVA",
+      "title": "알 으깨서 칼칼한 국물에 면치기 한방이면 속까지 뜨듯🔥 트와이스도 자주 찾는 찐 칼국수 맛집👍 | 줄서는식당",
+      "description": "tvN 레전드 예능 끌어~ 올려↗↗ #끌올 \n\n방송국놈들의 하드털이 채널 '디글 클래식'\nwe’re :DIGGLE family",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/nc2ktZ1rYDs/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/nc2ktZ1rYDs/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/nc2ktZ1rYDs/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/nc2ktZ1rYDs/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/nc2ktZ1rYDs/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "디글 클래식 :Diggle Classic",
+      "playlistId": "PLvDaoEdHc6865dp03UlrENuwtNbRhLVmf",
+      "position": 5,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "nc2ktZ1rYDs"
+      },
+      "videoOwnerChannelTitle": "디글 클래식 :Diggle Classic",
+      "videoOwnerChannelId": "UCRMA_Nb5VF-YoWApSVeXPVA"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "iWBDtjog6PPvfu3Sl4SeOFKPwSA",
+    "id": "UEx2RGFvRWRIYzY4NjVkcDAzVWxyRU51d3ROYlJoTFZtZi41MzJCQjBCNDIyRkJDN0VD",
+    "snippet": {
+      "publishedAt": "2023-10-20T05:41:38Z",
+      "channelId": "UCRMA_Nb5VF-YoWApSVeXPVA",
+      "title": "돼지김치 구이는 볼 때마다 레전드🔥 한국인들 환장하게 만드는 자작한 국물에 두툼한 고기로 끝장내버림ㄷㄷ | 줄서는식당",
+      "description": "tvN 레전드 예능 끌어~ 올려↗↗ #끌올 \n\n방송국놈들의 하드털이 채널 '디글 클래식'\nwe’re :DIGGLE family",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/twF_KTfh6LM/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/twF_KTfh6LM/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/twF_KTfh6LM/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/twF_KTfh6LM/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/twF_KTfh6LM/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "디글 클래식 :Diggle Classic",
+      "playlistId": "PLvDaoEdHc6865dp03UlrENuwtNbRhLVmf",
+      "position": 6,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "twF_KTfh6LM"
+      },
+      "videoOwnerChannelTitle": "디글 클래식 :Diggle Classic",
+      "videoOwnerChannelId": "UCRMA_Nb5VF-YoWApSVeXPVA"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "2epPPN1pbIpfVLl7dNiNBfeu1bI",
+    "id": "UEx2RGFvRWRIYzY4NjVkcDAzVWxyRU51d3ROYlJoTFZtZi5DQUNERDQ2NkIzRUQxNTY1",
+    "snippet": {
+      "publishedAt": "2023-10-23T05:58:38Z",
+      "channelId": "UCRMA_Nb5VF-YoWApSVeXPVA",
+      "title": "고기 좀 먹어본 육식파들의 원픽 맛집🥩 소 혀까지 맛있어버리는 최상등급 한우 고깃집👅 | 줄서는식당",
+      "description": "tvN 레전드 예능 끌어~ 올려↗↗ #끌올 \n\n방송국놈들의 하드털이 채널 '디글 클래식'\nwe’re :DIGGLE family",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/RFURbseyniI/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/RFURbseyniI/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/RFURbseyniI/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/RFURbseyniI/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/RFURbseyniI/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "디글 클래식 :Diggle Classic",
+      "playlistId": "PLvDaoEdHc6865dp03UlrENuwtNbRhLVmf",
+      "position": 7,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "RFURbseyniI"
+      },
+      "videoOwnerChannelTitle": "디글 클래식 :Diggle Classic",
+      "videoOwnerChannelId": "UCRMA_Nb5VF-YoWApSVeXPVA"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "I-GYc1iGcuNf1uFFP8pIxOCFtCU",
+    "id": "UEx2RGFvRWRIYzY4NjVkcDAzVWxyRU51d3ROYlJoTFZtZi45NDk1REZENzhEMzU5MDQz",
+    "snippet": {
+      "publishedAt": "2023-10-23T05:58:38Z",
+      "channelId": "UCRMA_Nb5VF-YoWApSVeXPVA",
+      "title": "들기만 해도 쏙 빠지는 야들야들함🔥 매콤 달달한 등갈비에 쫄깃한 메밀전 싸서 한입🤤 | 줄서는식당",
+      "description": "tvN 레전드 예능 끌어~ 올려↗↗ #끌올 \n\n방송국놈들의 하드털이 채널 '디글 클래식'\nwe’re :DIGGLE family",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/aVKMecRbQAI/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/aVKMecRbQAI/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/aVKMecRbQAI/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/aVKMecRbQAI/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/aVKMecRbQAI/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "디글 클래식 :Diggle Classic",
+      "playlistId": "PLvDaoEdHc6865dp03UlrENuwtNbRhLVmf",
+      "position": 8,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "aVKMecRbQAI"
+      },
+      "videoOwnerChannelTitle": "디글 클래식 :Diggle Classic",
+      "videoOwnerChannelId": "UCRMA_Nb5VF-YoWApSVeXPVA"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "Uo5n3yjUEANWCrC1MW5hFCZo2Uo",
+    "id": "UEx2RGFvRWRIYzY4NjVkcDAzVWxyRU51d3ROYlJoTFZtZi5GNjNDRDREMDQxOThCMDQ2",
+    "snippet": {
+      "publishedAt": "2023-10-23T05:58:38Z",
+      "channelId": "UCRMA_Nb5VF-YoWApSVeXPVA",
+      "title": "낙짓집 딸 박나래의 낙지학개론🔍 남다른 해물 사이즈로 손님들 기죽이는 레전드 낙곱새 집 | 줄서는식당",
+      "description": "tvN 레전드 예능 끌어~ 올려↗↗ #끌올 \n\n방송국놈들의 하드털이 채널 '디글 클래식'\nwe’re :DIGGLE family",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/sKCgq3wZWj4/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/sKCgq3wZWj4/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/sKCgq3wZWj4/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/sKCgq3wZWj4/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/sKCgq3wZWj4/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "디글 클래식 :Diggle Classic",
+      "playlistId": "PLvDaoEdHc6865dp03UlrENuwtNbRhLVmf",
+      "position": 9,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "sKCgq3wZWj4"
+      },
+      "videoOwnerChannelTitle": "디글 클래식 :Diggle Classic",
+      "videoOwnerChannelId": "UCRMA_Nb5VF-YoWApSVeXPVA"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "fAQe55UCVgh6A_F7nEj_u4Jl6-k",
+    "id": "UEx2RGFvRWRIYzY4NjVkcDAzVWxyRU51d3ROYlJoTFZtZi40NzZCMERDMjVEN0RFRThB",
+    "snippet": {
+      "publishedAt": "2023-10-23T05:59:41Z",
+      "channelId": "UCRMA_Nb5VF-YoWApSVeXPVA",
+      "title": "갈빗살 꽃이 피었습니다🌸 인별그램에서 비주얼 대장 먹은 겉바속촉 덮밥즈 총집합👐 | 줄서는식당",
+      "description": "tvN 레전드 예능 끌어~ 올려↗↗ #끌올 \n\n방송국놈들의 하드털이 채널 '디글 클래식'\nwe’re :DIGGLE family",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/-ii1noTWlAI/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/-ii1noTWlAI/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/-ii1noTWlAI/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/-ii1noTWlAI/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/-ii1noTWlAI/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "디글 클래식 :Diggle Classic",
+      "playlistId": "PLvDaoEdHc6865dp03UlrENuwtNbRhLVmf",
+      "position": 10,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "-ii1noTWlAI"
+      },
+      "videoOwnerChannelTitle": "디글 클래식 :Diggle Classic",
+      "videoOwnerChannelId": "UCRMA_Nb5VF-YoWApSVeXPVA"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "kyw5pm6miUYfCYhAIcICYHsctCo",
+    "id": "UEx2RGFvRWRIYzY4NjVkcDAzVWxyRU51d3ROYlJoTFZtZi5EMEEwRUY5M0RDRTU3NDJC",
+    "snippet": {
+      "publishedAt": "2023-10-23T05:59:41Z",
+      "channelId": "UCRMA_Nb5VF-YoWApSVeXPVA",
+      "title": "닭갈비 인생 음식인 사람 손🖐 항아리에 숙성시켜서 촉촉이 양념 배어든 닭갈비X막국수 먹방! | 줄서는식당",
+      "description": "tvN 레전드 예능 끌어~ 올려↗↗ #끌올 \n\n방송국놈들의 하드털이 채널 '디글 클래식'\nwe’re :DIGGLE family",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/WOVomBQ_jZ0/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/WOVomBQ_jZ0/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/WOVomBQ_jZ0/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/WOVomBQ_jZ0/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/WOVomBQ_jZ0/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "디글 클래식 :Diggle Classic",
+      "playlistId": "PLvDaoEdHc6865dp03UlrENuwtNbRhLVmf",
+      "position": 11,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "WOVomBQ_jZ0"
+      },
+      "videoOwnerChannelTitle": "디글 클래식 :Diggle Classic",
+      "videoOwnerChannelId": "UCRMA_Nb5VF-YoWApSVeXPVA"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "FcZQ8s5WbDkuCoE8IAwqwI--ciM",
+    "id": "UEx2RGFvRWRIYzY4NjVkcDAzVWxyRU51d3ROYlJoTFZtZi45ODRDNTg0QjA4NkFBNkQy",
+    "snippet": {
+      "publishedAt": "2023-10-23T05:59:41Z",
+      "channelId": "UCRMA_Nb5VF-YoWApSVeXPVA",
+      "title": "오리 어디까지 먹어봤니?🤔 잡내 싹 잡고 힙스터로 등극한 겉바속촉 오리 통구이 먹방💖 | 줄서는식당",
+      "description": "tvN 레전드 예능 끌어~ 올려↗↗ #끌올 \n\n방송국놈들의 하드털이 채널 '디글 클래식'\nwe’re :DIGGLE family",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/yeqGM5wrUFI/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/yeqGM5wrUFI/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/yeqGM5wrUFI/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/yeqGM5wrUFI/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/yeqGM5wrUFI/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "디글 클래식 :Diggle Classic",
+      "playlistId": "PLvDaoEdHc6865dp03UlrENuwtNbRhLVmf",
+      "position": 12,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "yeqGM5wrUFI"
+      },
+      "videoOwnerChannelTitle": "디글 클래식 :Diggle Classic",
+      "videoOwnerChannelId": "UCRMA_Nb5VF-YoWApSVeXPVA"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "4GnsKw4nYbmzkSUnYUpIM_J7DMA",
+    "id": "UEx2RGFvRWRIYzY4NjVkcDAzVWxyRU51d3ROYlJoTFZtZi4zMDg5MkQ5MEVDMEM1NTg2",
+    "snippet": {
+      "publishedAt": "2023-11-02T08:13:36Z",
+      "channelId": "UCRMA_Nb5VF-YoWApSVeXPVA",
+      "title": "제발 보지 말아 주세요. 제가 가야 돼요🙏 장어 3마리 2만 원에 판매하는 역대급 가성비 맛집 | 줄서는식당",
+      "description": "tvN 레전드 예능 끌어~ 올려↗↗ #끌올 \n\n방송국놈들의 하드털이 채널 '디글 클래식'\nwe’re :DIGGLE family",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/iHq7uc0eSGw/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/iHq7uc0eSGw/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/iHq7uc0eSGw/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/iHq7uc0eSGw/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/iHq7uc0eSGw/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "디글 클래식 :Diggle Classic",
+      "playlistId": "PLvDaoEdHc6865dp03UlrENuwtNbRhLVmf",
+      "position": 13,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "iHq7uc0eSGw"
+      },
+      "videoOwnerChannelTitle": "디글 클래식 :Diggle Classic",
+      "videoOwnerChannelId": "UCRMA_Nb5VF-YoWApSVeXPVA"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "8dhjf48iVLhFWABrkT-5Paj3QfU",
+    "id": "UEx2RGFvRWRIYzY4NjVkcDAzVWxyRU51d3ROYlJoTFZtZi41Mzk2QTAxMTkzNDk4MDhF",
+    "snippet": {
+      "publishedAt": "2023-11-02T08:13:36Z",
+      "channelId": "UCRMA_Nb5VF-YoWApSVeXPVA",
+      "title": "한입 베어 물면 육즙이 팡팡🎇 탱글한 통새우가 들어간 하가우부터 얼큰한 우육면까지🦐🥟 | 줄서는식당",
+      "description": "tvN 레전드 예능 끌어~ 올려↗↗ #끌올 \n\n방송국놈들의 하드털이 채널 '디글 클래식'\nwe’re :DIGGLE family",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/iX0raYuGkvk/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/iX0raYuGkvk/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/iX0raYuGkvk/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/iX0raYuGkvk/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/iX0raYuGkvk/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "디글 클래식 :Diggle Classic",
+      "playlistId": "PLvDaoEdHc6865dp03UlrENuwtNbRhLVmf",
+      "position": 14,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "iX0raYuGkvk"
+      },
+      "videoOwnerChannelTitle": "디글 클래식 :Diggle Classic",
+      "videoOwnerChannelId": "UCRMA_Nb5VF-YoWApSVeXPVA"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "mwiPkL6BEHlu2PVK1ruNfkwI1fI",
+    "id": "UEx2RGFvRWRIYzY4NjVkcDAzVWxyRU51d3ROYlJoTFZtZi5EQUE1NTFDRjcwMDg0NEMz",
+    "snippet": {
+      "publishedAt": "2023-11-02T08:13:36Z",
+      "channelId": "UCRMA_Nb5VF-YoWApSVeXPVA",
+      "title": "쌀쌀한 날씨에 딱인 뜨끈하고 쫄깃한 오리백숙🔥 남은 죽으로 누룽지 치즈전까지 야무지게 뇸뇸 | 줄서는식당",
+      "description": "tvN 레전드 예능 끌어~ 올려↗↗ #끌올 \n\n방송국놈들의 하드털이 채널 '디글 클래식'\nwe’re :DIGGLE family",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/qKmRlgnQhow/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/qKmRlgnQhow/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/qKmRlgnQhow/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/qKmRlgnQhow/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/qKmRlgnQhow/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "디글 클래식 :Diggle Classic",
+      "playlistId": "PLvDaoEdHc6865dp03UlrENuwtNbRhLVmf",
+      "position": 15,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "qKmRlgnQhow"
+      },
+      "videoOwnerChannelTitle": "디글 클래식 :Diggle Classic",
+      "videoOwnerChannelId": "UCRMA_Nb5VF-YoWApSVeXPVA"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "ol_g51DkAWS66kA7ZP9vy9i4v7M",
+    "id": "UEx2RGFvRWRIYzY4NjVkcDAzVWxyRU51d3ROYlJoTFZtZi41QTY1Q0UxMTVCODczNThE",
+    "snippet": {
+      "publishedAt": "2023-11-02T08:13:36Z",
+      "channelId": "UCRMA_Nb5VF-YoWApSVeXPVA",
+      "title": "돼지고기 꽃 받아봤니?🌹 인증샷 부르는 고기 플레이팅은 기본! 극소량 부위 골라 먹는 재미가 쏠쏠한 돼지 전문점🐖 | 줄서는식당",
+      "description": "tvN 레전드 예능 끌어~ 올려↗↗ #끌올 \n\n방송국놈들의 하드털이 채널 '디글 클래식'\nwe’re :DIGGLE family",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/qgx20w1oinQ/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/qgx20w1oinQ/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/qgx20w1oinQ/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/qgx20w1oinQ/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/qgx20w1oinQ/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "디글 클래식 :Diggle Classic",
+      "playlistId": "PLvDaoEdHc6865dp03UlrENuwtNbRhLVmf",
+      "position": 16,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "qgx20w1oinQ"
+      },
+      "videoOwnerChannelTitle": "디글 클래식 :Diggle Classic",
+      "videoOwnerChannelId": "UCRMA_Nb5VF-YoWApSVeXPVA"
+    }
+  }
+]

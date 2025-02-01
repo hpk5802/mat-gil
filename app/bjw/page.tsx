@@ -4,9 +4,9 @@ import ListContainer from '@/app/components/lists/ListContainer';
 async function page() {
   const {
     data: { lists, hasNext },
-  } = await axios.get('hsc');
+  } = await axios.get('bjw');
 
-  return <ListContainer channel="hsc" hasNext={hasNext} lists={lists} />;
+  return <ListContainer channel="bjw" hasNext={hasNext} lists={lists} />;
 }
 
 export default page;
