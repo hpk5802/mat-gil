@@ -2,7 +2,7 @@ import axios from '@/app/lib/instance';
 import ListContainer from '@/app/components/lists/ListContainer';
 
 async function ChannelHome({ params }: { params: { channel: string } }) {
-  const { channel } = params;
+  const { channel } = await params;
 
   const {
     data: { lists, hasNext },
