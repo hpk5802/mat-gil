@@ -4,8 +4,14 @@ import { RawYoutubeData, YoutubeData } from '@/app/types/youtube';
 
 export async function GET(request: Request): Promise<Response> {
   try {
+    // URL에서 파일 이름 추출 (예: /api/pungja -> pungja.json)
+    const url = new URL(request.url);
+    const pathname = url.pathname; // /api/{filename}
+    const filename = pathname.split('/').pop(); // {filename}
+    const jsonFileName = `${filename}.json`;
+
     // JSON 파일 경로 설정
-    const filePath = path.join(process.cwd(), 'data', 'seongsigyeong.json');
+    const filePath = path.join(process.cwd(), 'data', jsonFileName);
 
     // 파일 읽기
     const fileContents = await fs.readFile(filePath, 'utf-8');
@@ -21,7 +27,6 @@ export async function GET(request: Request): Promise<Response> {
       thumbnailUrl: item.snippet.thumbnails.high.url,
     }));
 
-    const url = new URL(request.url);
     const limitParam = url.searchParams.get('limit');
     const cursorParam = url.searchParams.get('cursor');
 
