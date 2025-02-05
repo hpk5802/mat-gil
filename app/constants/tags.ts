@@ -5,19 +5,19 @@ const tags = [
   },
   {
     title: '먹을텐데 | 성시경',
-    path: '/ssg',
+    path: '/seongsigyeong',
   },
   {
     title: '미식은 경험이다 | 홍석천',
-    path: '/hsc',
+    path: '/hongseokcheon',
   },
   {
     title: '줄서는 식당 | 입짧은 햇님',
-    path: '/hnim',
+    path: '/haennim',
   },
   {
     title: '님아 그 시장을 가오 | 백종원',
-    path: '/bjw',
+    path: '/baekjongwon',
   },
 ];
 
