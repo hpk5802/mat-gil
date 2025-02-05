@@ -8,8 +8,6 @@ async function ChannelHome({ params }: { params: { channel: string } }) {
     data: { lists, hasNext },
   } = await axios.get(channel);
 
-  console.log(channel);
-
   return <ListContainer channel={channel} hasNext={hasNext} lists={lists} />;
 }
 
