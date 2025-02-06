@@ -1,24 +1,31 @@
 'use client';
 
+import { useEffect, useState } from 'react';
 import Image from 'next/image';
-import { useState } from 'react';
+import ReactPlayer from 'react-player/lazy';
 
 function VideoPlayer({ videoId, lazy }: { videoId: string; lazy: string }) {
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      setIsClient(true);
+    }
+  }, []);
 
   return (
     <>
-      {isLoading ? (
-        <Image fill src={lazy} alt="대체 이미지" />
-      ) : (
-        <iframe
+      {!isLoaded && (
+        <Image fill src={lazy} className="object-cover" alt="Video Thumbnail" />
+      )}
+      {isClient && (
+        <ReactPlayer
+          url={`https://www.youtube.com/watch?v=${videoId}`}
+          controls
           width="100%"
           height="100%"
-          src={`https://www.youtube.com/embed/${videoId}`}
-          title="YouTube video player"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowFullScreen
-          onLoad={() => setIsLoading(false)}
+          onReady={() => setIsLoaded(true)}
         />
       )}
     </>
