@@ -21,7 +21,8 @@ function VideoPlayer({ videoId, lazy }: { videoId: string; lazy: string }) {
       )}
       {isClient && (
         <ReactPlayer
-          url={`https://www.youtube.com/watch?v=${videoId}`}
+          // url={`https://www.youtube.com/watch?v=${videoId}`}
+          url={`https://www.youtube.com/watch?v=${videoId}&showinfo=0&enablejsapi=1&origin=origin=${process.env.NEXT_PUBLIC_BASE_URL}`}
           controls
           width="100%"
           height="100%"
