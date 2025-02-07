@@ -11,19 +11,19 @@ function Card({ channel, lists }: CardInterface) {
   return lists.map((list) => (
     <div
       key={list.id}
-      className="w-[48.5%] md:w-[32%] md:border-none border-gray-300 shadow-card rounded-lg overflow-hidden text-white"
+      className="w-[48.5%] md:w-[32%] overflow-hidden rounded-xl bg-card hover:shadow-lg transition-all duration-300 group"
     >
       <Link href={`/${channel}/${list.position}`}>
         <div className="relative w-full aspect-[1.75/1]">
           <Image
             src={list.thumbnailUrl}
-            className="object-cover -translate-y-0.5"
+            className="object-cover transition-transform duration-300 group-hover:scale-105"
             fill
-            alt="thumbnail"
+            alt={list.title}
           />
         </div>
-        <div className="p-2 bg-card-background">
-          <h3 className="text-xs md:text-md line-clamp-2 h-7 md:h-8">
+        <div className="p-3 bg-card-background h-14 md:h-[4.5rem]">
+          <h3 className="text-sm md:text-base font-medium line-clamp-2 text-gray-100 group-hover:text-white transition-colors duration-300">
             {list.title}
           </h3>
         </div>

@@ -10,6 +10,10 @@ interface Snippet {
   position: number;
   title: string;
   thumbnails: Thumbnails;
+  description: string;
+  resourceId: {
+    videoId: string;
+  };
 }
 
 interface RawYoutubeData {
@@ -22,6 +26,8 @@ interface YoutubeData {
   position: number;
   title: string;
   thumbnailUrl: string;
+  description: string;
+  videoId: string;
 }
 
 export type { RawYoutubeData, YoutubeData };

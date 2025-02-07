@@ -1,3 +1,4 @@
+import VideoPlayer from '@/app/components/detail/VideoPlayer';
 import axios from '@/app/lib/instance';
 
 async function DetailPage({
@@ -12,7 +13,18 @@ async function DetailPage({
   } = await axios.get(`${channel}/${id}`);
 
   return (
-    <div>
+    <div className="max-w-[46.25rem] mx-auto px-3 py-5">
+      <div className="relative w-full aspect-[1.75/1]">
+        {/* <iframe
+          width="100%"
+          height="100%"
+          src={`https://www.youtube.com/embed/${list.videoId}`}
+          title="YouTube video player"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowFullScreen
+        /> */}
+        <VideoPlayer videoId={list.videoId} lazy={list.thumbnailUrl} />
+      </div>
       <div className="text-white">{list.title}</div>
       <div className="text-white">{list.description}</div>
     </div>

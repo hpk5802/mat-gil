@@ -25,6 +25,8 @@ export async function GET(request: Request): Promise<Response> {
       position: item.snippet.position,
       title: item.snippet.title,
       thumbnailUrl: item.snippet.thumbnails.high.url,
+      description: item.snippet.description,
+      videoId: item.snippet.resourceId.videoId,
     }));
 
     const limitParam = url.searchParams.get('limit');
