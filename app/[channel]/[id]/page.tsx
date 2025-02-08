@@ -15,7 +15,7 @@ async function DetailPage({
   return (
     <div className="max-w-[46.25rem] mx-auto px-3 py-5">
       <div className="relative w-full aspect-[1.75/1]">
-        <VideoPlayer videoId={list.videoId} lazy={list.thumbnailUrl} />
+        <VideoPlayer videoId={list.videoId} lazy={list.thumbnail} />
       </div>
       <div className="text-white mt-3 font-semibold line-clamp-2">
         {list.title}
