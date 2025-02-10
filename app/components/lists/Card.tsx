@@ -2,6 +2,7 @@ import { YoutubeData } from '@/app/types/youtube';
 import Image from 'next/image';
 import Link from 'next/link';
 import IconMarker from '@/app/components/icons/IconMarker';
+import Category from './Category';
 
 interface CardInterface {
   channel: string;
@@ -25,20 +26,7 @@ function Card({ channel, lists }: CardInterface) {
             />
           </div>
           <div className="p-3 bg-card-background h-full md:h-[5.5rem]">
-            <div className="flex gap-1 mb-1 text-xs md:text-sm text-gray-300 overflow-hidden">
-              {category instanceof Array ? (
-                category.map((item) => (
-                  <span
-                    key={`${channel}_${position}_${item}`}
-                    className="flex-shrink-0"
-                  >
-                    #{item}
-                  </span>
-                ))
-              ) : (
-                <span>#{category}</span>
-              )}
-            </div>
+            <Category keyValue={`${channel}_${position}`} category={category} />
             <h3 className="text-sm md:text-base font-semibold line-clamp-1 text-gray-100 group-hover:text-white transition-colors duration-300">
               {title}
             </h3>
