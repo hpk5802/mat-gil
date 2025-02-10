@@ -8,23 +8,23 @@ interface CardInterface {
 }
 
 function Card({ channel, lists }: CardInterface) {
-  return lists.map((list) => (
+  return lists.map(({ videoId, position, thumbnail, title }) => (
     <div
-      key={list.videoId}
+      key={`${videoId}_${position}`}
       className="w-[48.5%] md:w-[32%] overflow-hidden rounded-xl bg-card hover:shadow-lg transition-all duration-300 group"
     >
-      <Link href={`/${channel}/${list.position}`}>
+      <Link href={`/${channel}/${position}`}>
         <div className="relative w-full aspect-[1.75/1]">
           <Image
-            src={list.thumbnail}
+            src={thumbnail}
             className="object-cover transition-transform duration-300 group-hover:scale-105"
             fill
-            alt={list.title}
+            alt={title}
           />
         </div>
         <div className="p-3 bg-card-background h-14 md:h-[4.5rem]">
           <h3 className="text-sm md:text-base font-medium line-clamp-2 text-gray-100 group-hover:text-white transition-colors duration-300">
-            {list.title}
+            {title}
           </h3>
         </div>
       </Link>
