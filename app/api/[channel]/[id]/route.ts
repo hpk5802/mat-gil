@@ -1,6 +1,6 @@
 import path from 'path';
 import { promises as fs } from 'fs';
-import { RawYoutubeData, YoutubeData } from '@/app/types/youtube';
+import { YoutubeData } from '@/app/types/youtube';
 
 export async function GET(request: Request): Promise<Response> {
   try {
@@ -28,16 +28,7 @@ export async function GET(request: Request): Promise<Response> {
     const fileContents = await fs.readFile(filePath, 'utf-8');
 
     // JSON 파싱 및 데이터 매핑
-    const rawData: RawYoutubeData[] = JSON.parse(fileContents);
-
-    const data: YoutubeData[] = rawData.map((item) => ({
-      id: item.id,
-      position: item.snippet.position,
-      title: item.snippet.title,
-      thumbnailUrl: item.snippet.thumbnails.high.url,
-      description: item.snippet.description,
-      videoId: item.snippet.resourceId.videoId,
-    }));
+    const data: YoutubeData[] = JSON.parse(fileContents);
 
     // id에 해당하는 데이터 찾기
     const target = data.find((item) => item.position === Number(id));

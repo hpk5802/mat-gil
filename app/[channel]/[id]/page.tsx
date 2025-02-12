@@ -1,4 +1,6 @@
+import Divider from '@/app/components/common/Divider';
 import VideoPlayer from '@/app/components/detail/VideoPlayer';
+import IconMarker from '@/app/components/icons/IconMarker';
 import axios from '@/app/lib/instance';
 
 async function DetailPage({
@@ -12,21 +14,19 @@ async function DetailPage({
     data: { list },
   } = await axios.get(`${channel}/${id}`);
 
+  const { videoId, thumbnail, timeline, address } = list;
+
   return (
-    <div className="max-w-[46.25rem] mx-auto px-3 py-5">
+    <div className="max-w-[46.25rem] mx-auto px-3 py-5 text-white">
       <div className="relative w-full aspect-[1.75/1]">
-        {/* <iframe
-          width="100%"
-          height="100%"
-          src={`https://www.youtube.com/embed/${list.videoId}`}
-          title="YouTube video player"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowFullScreen
-        /> */}
-        <VideoPlayer videoId={list.videoId} lazy={list.thumbnailUrl} />
+        <VideoPlayer videoId={videoId} lazy={thumbnail} timeline={timeline} />
       </div>
-      <div className="text-white">{list.title}</div>
-      <div className="text-white">{list.description}</div>
+      <div className="mt-3 font-semibold line-clamp-2">{list.title}</div>
+      <Divider />
+      <div className="flex items-center gap-1">
+        <IconMarker className="w-3.5 h-3.5" />
+        {address}
+      </div>
     </div>
   );
 }
