@@ -28,7 +28,6 @@ function VideoPlayer({ videoId, lazy, timeline }: VideoPlayerProps) {
       )}
       {isClient && (
         <ReactPlayer
-          // url={`https://www.youtube.com/watch?v=${videoId}`}
           url={`https://www.youtube.com/watch?v=${videoId}&showinfo=0&enablejsapi=1&origin=origin=${
             process.env.NEXT_PUBLIC_BASE_URL
           }${timeline && `&start=${convertTimeToSeconds(timeline)}`}}`}
