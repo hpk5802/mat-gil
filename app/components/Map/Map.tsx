@@ -3,7 +3,11 @@
 import { useEffect, useRef } from 'react';
 import Script from 'next/script';
 
-function Map() {
+interface MapProps {
+  address: string;
+}
+
+function Map({ address }: MapProps) {
   const mapRef = useRef<naver.maps.Map | null>(null);
 
   const initMap = (lat: number, lng: number) => {
@@ -23,7 +27,7 @@ function Map() {
   useEffect(() => {
     naver.maps.Service.geocode(
       {
-        query: '통영시 무전1길 64-11 되뫼골부대찌개',
+        query: address,
       },
       function (status, response) {
         if (status === naver.maps.Service.Status.ERROR) {
@@ -45,7 +49,7 @@ function Map() {
         mapRef.current.destroy();
       }
     };
-  }, []);
+  }, [address]);
 
   return (
     <>
