@@ -1,7 +1,8 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Script from 'next/script';
+import MapSkeleton from './MapSkeleton';
 
 interface MapProps {
   address: string;
@@ -9,6 +10,7 @@ interface MapProps {
 
 function Map({ address }: MapProps) {
   const mapRef = useRef<naver.maps.Map | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
 
   const initMap = (lat: number, lng: number) => {
     const map = new naver.maps.Map('map', {
@@ -34,8 +36,6 @@ function Map({ address }: MapProps) {
           console.error('지도 정보를 불러오는 중 에러가 발생했습니다.');
         }
 
-        console.log(response);
-
         const result = response.v2.addresses[0];
         const lng = Number(result.x);
         const lat = Number(result.y);
@@ -57,8 +57,12 @@ function Map({ address }: MapProps) {
         strategy="beforeInteractive"
         type="text/javascript"
         src={`https://oapi.map.naver.com/openapi/v3/maps.js?ncpClientId=${process.env.NEXT_PUBLIC_NAVER_CLIENT_ID}&submodules=geocoder`}
+        onReady={() => setIsLoading(false)}
       />
-      <div id="map" style={{ width: '100%', height: '400px' }} />
+      <div className="relative w-full h-[20rem] md:h-[25rem] rounded-lg overflow-hidden">
+        {isLoading && <MapSkeleton />}
+        <div id="map" style={{ width: '100%', height: '400px' }} />
+      </div>
     </>
   );
 }
