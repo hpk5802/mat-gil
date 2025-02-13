@@ -1,6 +1,7 @@
 import Divider from '@/app/components/common/Divider';
 import VideoPlayer from '@/app/components/detail/VideoPlayer';
 import IconMarker from '@/app/components/icons/IconMarker';
+import Map from '@/app/components/Map/Map';
 import axios from '@/app/lib/instance';
 
 async function DetailPage({
@@ -27,6 +28,7 @@ async function DetailPage({
         <IconMarker className="w-3.5 h-3.5" />
         {address}
       </div>
+      <Map />
     </div>
   );
 }
