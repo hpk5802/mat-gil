@@ -1,7 +1,11 @@
 import axios from '@/app/lib/instance';
 import ListContainer from '@/app/components/lists/ListContainer';
 
-async function ChannelHome({ params }: { params: { channel: string } }) {
+async function ChannelHome({
+  params,
+}: {
+  params: Promise<{ channel: string }>;
+}) {
   const { channel } = await params;
 
   const {
