@@ -41,6 +41,7 @@ function Map({ address }: MapProps) {
         const lat = Number(result.y);
 
         initMap(lat, lng);
+        setIsLoading(false);
       },
     );
 
@@ -57,7 +58,6 @@ function Map({ address }: MapProps) {
         strategy="beforeInteractive"
         type="text/javascript"
         src={`https://oapi.map.naver.com/openapi/v3/maps.js?ncpClientId=${process.env.NEXT_PUBLIC_NAVER_CLIENT_ID}&submodules=geocoder`}
-        onReady={() => setIsLoading(false)}
       />
       <div className="relative w-full h-[20rem] md:h-[25rem] rounded-lg overflow-hidden">
         {isLoading && <MapSkeleton />}
