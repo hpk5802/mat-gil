@@ -16,6 +16,8 @@ export default {
         'card-background': '#333333',
         'active-bg': '#ffffff',
         'active-text': '#141414',
+        'skeleton-start': '#232526',
+        'skeleton-end': '#414345',
       },
       fontSize: {
         '4xl': ['2.5rem', { lineHeight: '3rem' }], // 40px / 48px
@@ -28,8 +30,15 @@ export default {
         sm: ['0.8125rem', { lineHeight: '1rem' }], // 13px / 16px
         xs: ['0.75rem', { lineHeight: '0.875rem' }], // 12px / 14px
       },
-      boxShadow: {
-        card: '0.25rem 0.25rem 0.375rem rgba(255, 255, 255, 0.2)',
+
+      keyframes: {
+        wave: {
+          from: { transform: 'translateX(0)' },
+          to: { transform: 'translateX(-50%)' },
+        },
+      },
+      animation: {
+        wave: 'wave 1.5s ease-in-out infinite',
       },
     },
   },
