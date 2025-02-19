@@ -1,9 +1,9 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import Image from 'next/image';
 import ReactPlayer from 'react-player/lazy';
 import convertTimeToSeconds from '@/app/utils/convertTimeToSeconds';
+import LazyImage from '../common/LazyImage';
 
 interface VideoPlayerProps {
   videoId: string;
@@ -23,9 +23,7 @@ function VideoPlayer({ videoId, lazy, timeline }: VideoPlayerProps) {
 
   return (
     <>
-      {!isLoaded && (
-        <Image fill src={lazy} className="object-cover" alt="Video Thumbnail" />
-      )}
+      {!isLoaded && <LazyImage thumbnail={lazy} alt="Video Thumbnail" />}
       {isClient && (
         <ReactPlayer
           url={`https://www.youtube.com/watch?v=${videoId}&showinfo=0&enablejsapi=1&origin=origin=${
