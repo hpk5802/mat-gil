@@ -15,6 +15,13 @@ function Map({ address }: MapProps) {
     const map = new naver.maps.Map('map', {
       center: new naver.maps.LatLng(lat, lng),
       zoom: 20,
+      draggable: false,
+      pinchZoom: false,
+      scrollWheel: false,
+      keyboardShortcuts: false,
+      disableDoubleTapZoom: true,
+      disableDoubleClickZoom: true,
+      disableTwoFingerTapZoom: true,
     });
 
     new naver.maps.Marker({
