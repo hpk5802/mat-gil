@@ -1,7 +1,6 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
-import Script from 'next/script';
 import MapSkeleton from './MapSkeleton';
 
 interface MapProps {
@@ -41,6 +40,7 @@ function Map({ address }: MapProps) {
         const lat = Number(result.y);
 
         initMap(lat, lng);
+        setIsLoading(false);
       },
     );
 
@@ -52,18 +52,10 @@ function Map({ address }: MapProps) {
   }, [address]);
 
   return (
-    <>
-      <Script
-        strategy="beforeInteractive"
-        type="text/javascript"
-        src={`https://oapi.map.naver.com/openapi/v3/maps.js?ncpClientId=${process.env.NEXT_PUBLIC_NAVER_CLIENT_ID}&submodules=geocoder`}
-        onReady={() => setIsLoading(false)}
-      />
-      <div className="relative w-full h-[20rem] md:h-[25rem] rounded-lg overflow-hidden">
-        {isLoading && <MapSkeleton />}
-        <div id="map" style={{ width: '100%', height: '400px' }} />
-      </div>
-    </>
+    <div className="relative w-full h-[20rem] md:h-[25rem] rounded-lg overflow-hidden">
+      {isLoading && <MapSkeleton />}
+      <div id="map" style={{ width: '100%', height: '400px' }} />
+    </div>
   );
 }
 

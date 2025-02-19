@@ -7,7 +7,7 @@ import axios from '@/app/lib/instance';
 async function DetailPage({
   params,
 }: {
-  params: { channel: string; id: string };
+  params: Promise<{ channel: string; id: string }>;
 }) {
   const { channel, id } = await params;
 

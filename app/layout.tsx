@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Bagel_Fat_One } from 'next/font/google';
 import './globals.css';
 import Header from '@/app/components/common/Header';
+import Script from 'next/script';
 
 const bagelFatOne = Bagel_Fat_One({
   variable: '--font-bagel-fat-one',
@@ -25,6 +26,11 @@ export default function RootLayout({
       <body
         className={`${bagelFatOne.variable} antialiased bg-brand-background pt-[5.2rem] md:pt-[6.5rem]`}
       >
+        <Script
+          strategy="beforeInteractive"
+          type="text/javascript"
+          src={`https://oapi.map.naver.com/openapi/v3/maps.js?ncpClientId=${process.env.NEXT_PUBLIC_NAVER_CLIENT_ID}&submodules=geocoder`}
+        />
         <Header />
         {children}
       </body>
