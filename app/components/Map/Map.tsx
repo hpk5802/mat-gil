@@ -22,6 +22,14 @@ function Map({ address }: MapProps) {
       disableDoubleTapZoom: true,
       disableDoubleClickZoom: true,
       disableTwoFingerTapZoom: true,
+      zoomControl: true,
+      zoomControlOptions: {
+        position: naver.maps.Position.TOP_RIGHT,
+        style: naver.maps.ZoomControlStyle.LARGE,
+        legendDisabled: true,
+      },
+      minZoom: 14,
+      maxZoom: 22,
     });
 
     new naver.maps.Marker({
