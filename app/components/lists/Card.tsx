@@ -1,8 +1,8 @@
 import { YoutubeData } from '@/app/types/youtube';
-import Image from 'next/image';
 import Link from 'next/link';
 import IconMarker from '@/app/components/icons/IconMarker';
 import Category from './Category';
+import LazyImage from '@/app/components/common/LazyImage';
 
 interface CardInterface {
   channel: string;
@@ -18,12 +18,7 @@ function Card({ channel, lists }: CardInterface) {
       >
         <Link href={`/${channel}/${position}`} className="flex flex-col">
           <div className="relative w-full aspect-[1.75/1]">
-            <Image
-              src={thumbnail}
-              className="object-cover transition-transform duration-300 group-hover:scale-105"
-              fill
-              alt="thumbnail"
-            />
+            <LazyImage thumbnail={thumbnail} alt="thumbnail" />
           </div>
           <div className="p-3 bg-card-background h-full md:h-[5.5rem]">
             <Category keyValue={`${channel}_${position}`} category={category} />
