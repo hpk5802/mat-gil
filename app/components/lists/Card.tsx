@@ -14,9 +14,12 @@ function Card({ channel, lists }: CardInterface) {
     ({ videoId, position, thumbnail, title, category, location }) => (
       <div
         key={`${videoId}_${position}`}
-        className="w-[48.5%] md:w-[32%] overflow-hidden rounded-xl bg-card transition-transform duration-300 group"
+        className="w-[48.5%] md:w-[32%] bg-card transition-transform duration-300 group focus:outline-1 focus:outline-white"
       >
-        <Link href={`/${channel}/${position}`} className="flex flex-col">
+        <Link
+          href={`/${channel}/${position}`}
+          className="flex flex-col overflow-hidden rounded-xl"
+        >
           <div className="relative w-full aspect-[1.75/1]">
             <LazyImage thumbnail={thumbnail} alt="thumbnail" />
           </div>
