@@ -25,7 +25,7 @@ function Map({ address }: MapProps) {
       zoomControl: true,
       zoomControlOptions: {
         position: naver.maps.Position.TOP_RIGHT,
-        style: naver.maps.ZoomControlStyle.LARGE,
+        style: naver.maps.ZoomControlStyle.SMALL,
         legendDisabled: true,
       },
       minZoom: 14,
