@@ -12,16 +12,17 @@ interface CardInterface {
 function Card({ channel, lists }: CardInterface) {
   return lists.map(
     ({ videoId, position, thumbnail, title, category, location }) => (
-      <div
+      <li
         key={`${videoId}_${position}`}
         className="w-[48.5%] md:w-[32%] bg-card transition-transform duration-300 group focus:outline-1 focus:outline-white"
       >
         <Link
           href={`/${channel}/${position}`}
           className="flex flex-col overflow-hidden rounded-xl"
+          aria-label={`${title} 영상 보러가기`}
         >
           <div className="relative w-full aspect-[1.75/1]">
-            <LazyImage thumbnail={thumbnail} alt="thumbnail" />
+            <LazyImage thumbnail={thumbnail} alt={`썸네일: ${title}`} />
           </div>
           <div className="p-3 bg-card-background h-full md:h-[5.5rem]">
             <Category keyValue={`${channel}_${position}`} category={category} />
@@ -34,7 +35,7 @@ function Card({ channel, lists }: CardInterface) {
             </div>
           </div>
         </Link>
-      </div>
+      </li>
     ),
   );
 }

@@ -8,6 +8,7 @@ function Logo({ className }: { className: string }) {
       height="1024.000000pt"
       viewBox="0 0 1024.000000 1024.000000"
       preserveAspectRatio="xMidYMid meet"
+      aria-hidden="true"
     >
       <g
         transform="translate(0.000000,1024.000000) scale(0.100000,-0.100000)"
