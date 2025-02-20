@@ -35,10 +35,10 @@ function VideoPlayer({ videoId, lazy, timeline, title }: VideoPlayerProps) {
           controls
           width="100%"
           height="100%"
+          muted
           config={{
             youtube: {
               playerVars: {
-                autoplay: 1,
                 cc_load_policy: 1,
                 cc_lang_pref: 'ko',
               },
