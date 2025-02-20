@@ -9,9 +9,10 @@ interface VideoPlayerProps {
   videoId: string;
   lazy: string;
   timeline?: string;
+  title: string;
 }
 
-function VideoPlayer({ videoId, lazy, timeline }: VideoPlayerProps) {
+function VideoPlayer({ videoId, lazy, timeline, title }: VideoPlayerProps) {
   const [isLoaded, setIsLoaded] = useState(false);
   const [isClient, setIsClient] = useState(false);
 
@@ -23,7 +24,9 @@ function VideoPlayer({ videoId, lazy, timeline }: VideoPlayerProps) {
 
   return (
     <>
-      {!isLoaded && <LazyImage thumbnail={lazy} alt="Video Thumbnail" />}
+      {!isLoaded && (
+        <LazyImage thumbnail={lazy} alt={`영상 썸네일: ${title}`} />
+      )}
       {isClient && (
         <ReactPlayer
           url={`https://www.youtube.com/watch?v=${videoId}&showinfo=0&enablejsapi=1&origin=origin=${
@@ -33,6 +36,14 @@ function VideoPlayer({ videoId, lazy, timeline }: VideoPlayerProps) {
           width="100%"
           height="100%"
           muted
+          config={{
+            youtube: {
+              playerVars: {
+                cc_load_policy: 1,
+                cc_lang_pref: 'ko',
+              },
+            },
+          }}
           onReady={() => setIsLoaded(true)}
         />
       )}

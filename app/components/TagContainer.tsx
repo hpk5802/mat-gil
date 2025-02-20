@@ -1,13 +1,22 @@
-import { PropsWithChildren } from 'react';
+import { PropsWithChildren, useRef } from 'react';
+import ScrollButton from '@/app/components/common/ScrollButton';
 
 function TagContainer({ children }: PropsWithChildren) {
+  const scrollRef = useRef<HTMLDivElement | null>(null);
+
   return (
-    <div className="flex gap-2 max-w-[75rem] mx-auto px-3 md:px-5 mt-3">
-      {/* <div className=""> */}
-      <div className="hide-scroll flex flex-nowrap touch-pan-x gap-x-2 overflow-x-scroll">
+    <nav className="flex gap-2 items-center max-w-[46.25rem] mx-auto mt-3 px-3 md:px-0">
+      <div
+        ref={scrollRef}
+        className="flex flex-nowrap touch-pan-x gap-x-2 md:overflow-hidden overflow-x-scroll hide-scroll"
+        role="list"
+        aria-label="태그 목록"
+      >
         {children}
       </div>
-    </div>
+      <ScrollButton direction="left" scrollRef={scrollRef} />
+      <ScrollButton direction="right" scrollRef={scrollRef} />
+    </nav>
   );
 }
 

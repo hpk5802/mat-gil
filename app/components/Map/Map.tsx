@@ -69,7 +69,12 @@ function Map({ address }: MapProps) {
   return (
     <div className="relative w-full h-[20rem] md:h-[25rem] rounded-lg overflow-hidden">
       {isLoading && <MapSkeleton />}
-      <div id="map" style={{ width: '100%', height: '400px' }} />
+      <div
+        id="map"
+        style={{ width: '100%', height: '400px' }}
+        aria-label={`가게 위치: ${address}`}
+        aria-hidden={isLoading ? 'true' : 'false'}
+      />
     </div>
   );
 }

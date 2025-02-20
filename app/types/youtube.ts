@@ -12,8 +12,3 @@ interface YoutubeData {
 }
 
 export type { YoutubeData };
-
-// "address": "",
-// "title": "",
-// "menu": "",
-// "timeline": ""
