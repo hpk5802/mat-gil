@@ -17,7 +17,7 @@ function LazyImage({ thumbnail, alt }: LazyImageProps) {
       {isLoading && <SkeletonImage />}
       <Image
         src={thumbnail}
-        className="object-cover transition-transform duration-300 group-hover:scale-105"
+        className="object-cover transition-transform duration-300 group-hover:scale-105 will-change-transform"
         fill
         alt={alt}
         onLoad={() => setIsLoading(false)}
