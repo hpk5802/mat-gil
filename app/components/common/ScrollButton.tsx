@@ -10,7 +10,7 @@ function ScrollButton({ direction, scrollRef }: ScrollButtonProps) {
   const handleSrollButtonClick = () => {
     if (scrollRef.current) {
       scrollRef.current.scrollBy({
-        left: direction === 'left' ? -150 : 150,
+        left: direction === 'left' ? -200 : 200,
         behavior: 'smooth',
       });
     }
