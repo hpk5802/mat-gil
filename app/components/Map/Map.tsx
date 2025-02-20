@@ -15,6 +15,21 @@ function Map({ address }: MapProps) {
     const map = new naver.maps.Map('map', {
       center: new naver.maps.LatLng(lat, lng),
       zoom: 20,
+      draggable: false,
+      pinchZoom: false,
+      scrollWheel: false,
+      keyboardShortcuts: false,
+      disableDoubleTapZoom: true,
+      disableDoubleClickZoom: true,
+      disableTwoFingerTapZoom: true,
+      zoomControl: true,
+      zoomControlOptions: {
+        position: naver.maps.Position.TOP_RIGHT,
+        style: naver.maps.ZoomControlStyle.LARGE,
+        legendDisabled: true,
+      },
+      minZoom: 14,
+      maxZoom: 22,
     });
 
     new naver.maps.Marker({
