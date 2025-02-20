@@ -12,29 +12,25 @@ function Header() {
 
   return (
     <header className="fixed w-full h-fit inset-0 z-10 bg-brand-background-opacity py-1">
-      <div className="flex max-w-[75rem] px-3 mx-auto md:px-5">
-        <h1>
-          <Link href="/" className="flex items-center">
-            <Logo className="w-9 h-9 md:w-12 md:h-12" />
-            <span className="text-xl md:text-2xl text-white bagel-font">
-              맛길
-            </span>
-          </Link>
-        </h1>
-      </div>
-      <div className="flex gap-2 max-w-[75rem] mx-auto px-3 md:px-5 mt-3">
-        <TagContainer>
-          {tags.map((tag) => (
-            <Tag
-              key={`tag_${tag.title}`}
-              href={tag.path}
-              isActive={tag.path === path}
-            >
-              {tag.title}
-            </Tag>
-          ))}
-        </TagContainer>
-      </div>
+      <h1 className="flex max-w-[75rem] px-3 mx-auto md:px-5">
+        <Link href="/" className="flex items-center">
+          <Logo className="w-9 h-9 md:w-12 md:h-12" />
+          <span className="text-xl md:text-2xl text-white bagel-font">
+            맛길
+          </span>
+        </Link>
+      </h1>
+      <TagContainer>
+        {tags.map((tag) => (
+          <Tag
+            key={`tag_${tag.title}`}
+            href={tag.path}
+            isActive={tag.path === path}
+          >
+            {tag.title}
+          </Tag>
+        ))}
+      </TagContainer>
     </header>
   );
 }
