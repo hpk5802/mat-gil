@@ -20,6 +20,8 @@ function ScrollButton({ direction, scrollRef }: ScrollButtonProps) {
     <button
       className="justify-center items-center shrink-0 w-7 h-7 hidden md:flex"
       onClick={handleSrollButtonClick}
+      aria-label={direction === 'left' ? '이전으로 스크롤' : '다음으로 스크롤'}
+      tabIndex={0}
     >
       {direction === 'left' ? <IconArrowLeft /> : <IconArrowRight />}
     </button>
