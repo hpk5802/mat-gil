@@ -67,7 +67,7 @@ function Map({ address }: MapProps) {
   }, [address]);
 
   return (
-    <div className="relative w-full h-[20rem] md:h-[25rem] rounded-lg overflow-hidden">
+    <div className="relative h-[20rem] w-full overflow-hidden rounded-lg md:h-[25rem]">
       {isLoading && <MapSkeleton />}
       <div
         id="map"

@@ -11,11 +11,11 @@ function Header() {
   const { channel } = useParams();
 
   return (
-    <header className="fixed w-full h-fit inset-0 z-10 bg-brand-background-opacity py-1">
-      <h1 className="flex max-w-[75rem] px-3 mx-auto md:px-5">
+    <header className="fixed inset-0 z-10 h-fit w-full bg-brand-background-opacity py-1">
+      <h1 className="mx-auto flex max-w-[75rem] px-3 md:px-5">
         <Link href="/" className="flex items-center">
-          <Logo className="w-9 h-9 md:w-12 md:h-12" />
-          <span className="text-xl md:text-2xl text-white bagel-font">
+          <Logo className="h-9 w-9 md:h-12 md:w-12" />
+          <span className="bagel-font text-xl text-white md:text-2xl">
             맛길
           </span>
         </Link>

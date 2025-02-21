@@ -7,7 +7,7 @@ function Category({
 }) {
   return (
     <div
-      className="flex gap-1 mb-1 text-xs md:text-sm text-gray-300 overflow-hidden"
+      className="mb-1 flex gap-1 overflow-hidden text-xs text-gray-300 md:text-sm"
       aria-label={`음식 카테고리: ${
         category instanceof Array ? category.join(', ') : category
       }`}
