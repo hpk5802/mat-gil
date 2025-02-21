@@ -1,8 +1,8 @@
 function MapSkeleton() {
   return (
-    <div className="w-full h-full absolute inset-0 bg-card-background animate-pulse">
-      <span className="w-[4.875rem] h-3 bg-zinc-500 absolute bottom-[0.4375rem] left-[0.625rem] rounded-sm z-10" />
-      <span className="w-[4.875rem] h-3 bg-zinc-500 absolute bottom-[0.4375rem] right-[0.625rem] rounded-sm z-10" />
+    <div className="absolute inset-0 h-full w-full animate-pulse bg-card-background">
+      <span className="absolute bottom-[0.4375rem] left-[0.625rem] z-10 h-3 w-[4.875rem] rounded-sm bg-zinc-500" />
+      <span className="absolute bottom-[0.4375rem] right-[0.625rem] z-10 h-3 w-[4.875rem] rounded-sm bg-zinc-500" />
     </div>
   );
 }

@@ -21,12 +21,12 @@ function ListContainer({
 
   return (
     <ul
-      className="flex flex-wrap gap-x-[3%] md:gap-x-[2%] gap-y-4 md:gap-y-5 md:w-[46.25rem] mx-auto px-3 py-5 md:px-0"
+      className="mx-auto flex flex-wrap gap-x-[3%] gap-y-4 px-3 py-5 md:w-[46.25rem] md:gap-x-[2%] md:gap-y-5 md:px-0"
       role="list"
       aria-label="맛집 목록"
     >
       <Card channel={channel} lists={lists} />
-      {hasNext && <div ref={endRef} className="w-full h-0.5" />}
+      {hasNext && <div ref={endRef} className="h-0.5 w-full" />}
     </ul>
   );
 }

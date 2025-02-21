@@ -5,10 +5,10 @@ function TagContainer({ children }: PropsWithChildren) {
   const scrollRef = useRef<HTMLDivElement | null>(null);
 
   return (
-    <nav className="flex gap-2 items-center max-w-[46.25rem] mx-auto mt-3 px-3 md:px-0">
+    <nav className="mx-auto mt-3 flex max-w-[46.25rem] items-center gap-2 px-3 md:px-0">
       <div
         ref={scrollRef}
-        className="flex flex-nowrap touch-pan-x gap-x-2 md:overflow-hidden overflow-x-scroll hide-scroll"
+        className="hide-scroll flex touch-pan-x flex-nowrap gap-x-2 overflow-x-scroll md:overflow-hidden"
         role="list"
         aria-label="태그 목록"
       >

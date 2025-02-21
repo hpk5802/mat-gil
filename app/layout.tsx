@@ -24,7 +24,7 @@ export default function RootLayout({
   return (
     <html lang="ko">
       <body
-        className={`${bagelFatOne.variable} antialiased bg-brand-background pt-[5.2rem] md:pt-[6.5rem]`}
+        className={`${bagelFatOne.variable} bg-brand-background pt-[5.2rem] antialiased md:pt-[6.5rem]`}
       >
         <Script
           strategy="beforeInteractive"
