@@ -1,14 +1,16 @@
 'use client';
 
-import { MouseEvent, PropsWithChildren, Ref } from 'react';
+import { forwardRef, MouseEvent, PropsWithChildren, Ref } from 'react';
 import IconClose from '@/app/components/icons/IconClose';
 
 interface DialogProps {
-  ref: Ref<HTMLDialogElement>;
   handleClose: () => void;
 }
 
-function Dialog({ ref, handleClose }: PropsWithChildren<DialogProps>) {
+function Dialog(
+  { handleClose }: PropsWithChildren<DialogProps>,
+  ref: Ref<HTMLDialogElement>,
+) {
   const handleCloseDialog = (e: MouseEvent<HTMLDialogElement>) => {
     if (e.target === e.currentTarget) {
       handleClose();
@@ -35,4 +37,4 @@ function Dialog({ ref, handleClose }: PropsWithChildren<DialogProps>) {
   );
 }
 
-export default Dialog;
+export default forwardRef(Dialog);
