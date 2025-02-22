@@ -7,11 +7,11 @@ import getRoute from '@/app/lib/getRoute';
 import DirectionMap from '@/app/components/Map/DirectionMap';
 import { Direction } from '@/app/types/directions';
 
-function DirectionWrap({}) {
+function DirectionWrap() {
   const { dialogRef, openDialog, closeDialog } = useDialog();
   const [directions, setDirections] = useState<Direction | null>(null);
 
-  const handleSuccess = async (position) => {
+  const handleSuccess = async (position: GeolocationPosition) => {
     const latitude = position.coords.latitude;
     const longitude = position.coords.longitude;
     const start = `${longitude},${latitude}`;
@@ -25,8 +25,8 @@ function DirectionWrap({}) {
     openDialog();
   };
 
-  const handleError = (error) => {
-    alert(`Error: ${error.code} / ${error.message}`);
+  const handleError = (error: GeolocationPositionError) => {
+    alert(`위치 조회 실패: ${error.code} / ${error.message}`);
   };
 
   const handleClick = () => {
