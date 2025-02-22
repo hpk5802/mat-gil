@@ -6,6 +6,11 @@ import { useDialog } from '@/app/hooks/useDialog';
 import getRoute from '@/app/lib/getRoute';
 import DirectionMap from '@/app/components/Map/DirectionMap';
 import { Direction } from '@/app/types/directions';
+import {
+  convertMetersToKilometers,
+  convertMilliSecondsToTime,
+  convertPriceToWon,
+} from '@/app/utils/format';
 
 function DirectionWrap() {
   const { dialogRef, openDialog, closeDialog } = useDialog();
@@ -50,17 +55,39 @@ function DirectionWrap() {
       </button>
       <Dialog ref={dialogRef} title="길찾기 모달" handleClose={closeDialog}>
         {isLoading ? (
-          <div className="h-[25rem] w-full">길찾기 정보를 불러오는 중...</div>
+          <div className="h-[29.375rem] w-full">
+            길찾기 정보를 불러오는 중...
+          </div>
         ) : directions ? (
-          <div>
-            <div>거리: {directions.summary.distance}</div>
-            <div>예상 시간: {directions.summary.duration}</div>
-            <div>택시요금: {directions.summary.taxiFare}</div>
-            <div>톨 게이트 요금: {directions.summary.tollFare}</div>
+          <div className="mt-2 flex flex-col gap-1">
+            <div className="flex justify-between text-white">
+              <span>거리</span>
+              <span className="font-semibold">
+                {convertMetersToKilometers(directions.summary.distance)}
+              </span>
+            </div>
+            <div className="flex justify-between text-white">
+              <span>예상 시간</span>
+              <span className="font-semibold">
+                {convertMilliSecondsToTime(directions.summary.duration)}
+              </span>
+            </div>
+            <div className="flex justify-between text-white">
+              <span>택시요금</span>
+              <span className="font-semibold">
+                {convertPriceToWon(directions.summary.taxiFare)}
+              </span>
+            </div>
+            <div className="flex justify-between text-white">
+              <span>통행료</span>
+              <span className="font-semibold">
+                {convertPriceToWon(directions.summary.tollFare)}
+              </span>
+            </div>
             <DirectionMap path={directions.path} />
           </div>
         ) : (
-          <div className="h-[25rem] w-full">길찾기에 실패했습니다.</div>
+          <div className="h-[29.375rem] w-full">길찾기에 실패했습니다.</div>
         )}
       </Dialog>
     </>
