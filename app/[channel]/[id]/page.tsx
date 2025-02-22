@@ -33,7 +33,7 @@ async function DetailPage({
         <IconMarker className="h-3.5 w-3.5" />
         {address}
       </div>
-      <Map address={address} />
+      {/* <Map address={address} /> */}
     </div>
   );
 }
