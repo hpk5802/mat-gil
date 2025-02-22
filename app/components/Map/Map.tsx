@@ -54,6 +54,8 @@ function Map({ address }: MapProps) {
         const lng = Number(result.x);
         const lat = Number(result.y);
 
+        sessionStorage.setItem('destination', `${lng},${lat}`);
+
         initMap(lat, lng);
         setIsLoading(false);
       },
