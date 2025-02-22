@@ -1,8 +1,7 @@
 'use client';
 
+import { Coordinates } from '@/app/types/directions';
 import { useEffect, useRef } from 'react';
-
-type Coordinates = [number, number];
 
 interface DirectionMapProps {
   path: Coordinates[];

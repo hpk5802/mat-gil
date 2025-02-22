@@ -5,18 +5,7 @@ import Dialog from '@/app/components/common/Dialog';
 import { useDialog } from '@/app/hooks/useDialog';
 import getRoute from '@/app/lib/getRoute';
 import DirectionMap from '@/app/components/Map/DirectionMap';
-
-type Coordinates = [number, number];
-
-type Direction = {
-  path: Coordinates[];
-  summary: {
-    distance: number; // 거리 (m)
-    duration: number; // 소요 시간 (ms)
-    taxiFare: number; // 택시 요금
-    tollFare: number; // 통행료
-  };
-};
+import { Direction } from '@/app/types/directions';
 
 function DirectionWrap({}) {
   const { dialogRef, openDialog, closeDialog } = useDialog();
