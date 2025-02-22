@@ -55,39 +55,39 @@ function DirectionWrap() {
       </button>
       <Dialog ref={dialogRef} title="길찾기 모달" handleClose={closeDialog}>
         {isLoading ? (
-          <div className="h-[29.375rem] w-full">
-            길찾기 정보를 불러오는 중...
-          </div>
+          <div className="h-[27.5rem] w-full">길찾기 정보를 불러오는 중...</div>
         ) : directions ? (
-          <div className="mt-2 flex flex-col gap-1">
-            <div className="flex justify-between text-white">
-              <span>거리</span>
-              <span className="font-semibold">
-                {convertMetersToKilometers(directions.summary.distance)}
-              </span>
-            </div>
-            <div className="flex justify-between text-white">
-              <span>예상 시간</span>
-              <span className="font-semibold">
-                {convertMilliSecondsToTime(directions.summary.duration)}
-              </span>
-            </div>
-            <div className="flex justify-between text-white">
-              <span>택시요금</span>
-              <span className="font-semibold">
-                {convertPriceToWon(directions.summary.taxiFare)}
-              </span>
-            </div>
-            <div className="flex justify-between text-white">
-              <span>통행료</span>
-              <span className="font-semibold">
-                {convertPriceToWon(directions.summary.tollFare)}
-              </span>
+          <>
+            <div className="mb-2 mt-2 grid grid-cols-2 gap-2">
+              <div className="flex flex-col">
+                <span className="text-md text-gray-300">거리</span>
+                <span className="font-semibold text-white">
+                  {convertMetersToKilometers(directions.summary.distance)}
+                </span>
+              </div>
+              <div className="flex flex-col">
+                <span className="text-md text-gray-300">예상 시간</span>
+                <span className="font-semibold text-white">
+                  {convertMilliSecondsToTime(directions.summary.duration)}
+                </span>
+              </div>
+              <div className="flex flex-col">
+                <span className="text-md text-gray-300">택시요금</span>
+                <span className="font-semibold text-white">
+                  {convertPriceToWon(directions.summary.taxiFare)}
+                </span>
+              </div>
+              <div className="flex flex-col">
+                <span className="text-md text-gray-300">통행료</span>
+                <span className="font-semibold text-white">
+                  {convertPriceToWon(directions.summary.tollFare)}
+                </span>
+              </div>
             </div>
             <DirectionMap path={directions.path} />
-          </div>
+          </>
         ) : (
-          <div className="h-[29.375rem] w-full">길찾기에 실패했습니다.</div>
+          <div className="h-[27.5rem] w-full">길찾기에 실패했습니다.</div>
         )}
       </Dialog>
     </>
