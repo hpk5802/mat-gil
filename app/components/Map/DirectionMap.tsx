@@ -25,7 +25,7 @@ function DirectionMap({ path }: DirectionMapProps) {
       map,
       path: path.map(([lng, lat]) => new naver.maps.LatLng(lat, lng)),
       strokeColor: '#16C47F',
-      strokeWeight: 2,
+      strokeWeight: 6,
       strokeOpacity: 0.8,
       strokeStyle: 'solid',
     });
