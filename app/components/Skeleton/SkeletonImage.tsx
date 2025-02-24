@@ -1,13 +1,5 @@
 function SkeletonImage() {
-  return (
-    <div
-      className="skeleton h-full w-full"
-      aria-live="polite"
-      aria-busy="true"
-      aria-label="이미지 로딩 중"
-      role="img"
-    />
-  );
+  return <div className="skeleton h-full w-full" aria-hidden="true" />;
 }
 
 export default SkeletonImage;
