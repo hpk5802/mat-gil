@@ -34,11 +34,11 @@ function DirectionWrap() {
       const geolocationError = error as GeolocationPositionError;
       console.error(`길 찾기 실패: ${error}`);
       if (geolocationError.code === 1) {
-        alert('위치 권한이 거부되었습니다.');
+        console.error('위치 권한이 거부되었습니다.');
       } else if (geolocationError.code === 2) {
-        alert('위치 정보를 사용할 수 없습니다.');
+        console.error('위치 정보를 사용할 수 없습니다.');
       } else if (geolocationError.code === 3) {
-        alert('위치 정보를 가져오는 데 시간이 초과되었습니다.');
+        console.error('위치 정보를 가져오는 데 시간이 초과되었습니다.');
       }
     } finally {
       setIsLoading(false);
@@ -46,14 +46,14 @@ function DirectionWrap() {
   };
 
   const handleError = (error: GeolocationPositionError) => {
-    alert(`위치 조회 실패: ${error.code} / ${error.message}`);
+    console.error(`위치 조회 실패: ${error.code} / ${error.message}`);
   };
 
   const handleClick = () => {
     if ('geolocation' in navigator) {
       navigator.geolocation.getCurrentPosition(handleSuccess, handleError);
     } else {
-      alert('브라우저가 위치 조회를 지원하지 않습니다.');
+      console.error('브라우저가 위치 조회를 지원하지 않습니다.');
     }
   };
 

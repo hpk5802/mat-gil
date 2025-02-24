@@ -19,8 +19,8 @@ export async function GET(request: NextRequest) {
       {
         params: { start, goal },
         headers: {
-          'x-ncp-apigw-api-key-id': process.env.NEXT_PUBLIC_NAVER_CLIENT_ID,
-          'x-ncp-apigw-api-key': process.env.NEXT_PUBLIC_NAVER_CLIENT_SECRET,
+          'x-ncp-apigw-api-key-id': process.env.NAVER_CLIENT_ID,
+          'x-ncp-apigw-api-key': process.env.NAVER_CLIENT_SECRET,
         },
       },
     );
