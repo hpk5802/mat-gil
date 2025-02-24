@@ -8,6 +8,7 @@ function IconHandle({ className }: { className?: string }) {
       height="24.000000pt"
       viewBox="0 0 24.000000 24.000000"
       preserveAspectRatio="xMidYMid meet"
+      aria-hidden="true"
     >
       <g
         transform="translate(0.000000,24.000000) scale(0.100000,-0.100000)"

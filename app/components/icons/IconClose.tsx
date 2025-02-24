@@ -7,6 +7,7 @@ function IconClose({ className }: { className?: string }) {
       viewBox="0 0 10 10"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
     >
       <path
         d="M1.08008 1L9.08008 9"
