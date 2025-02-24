@@ -29,8 +29,8 @@ async function DetailPage({
             title={title}
           />
         </div>
-        <div className="mt-3 line-clamp-2 font-semibold">{list.title}</div>
         <Divider />
+        <div className="line-clamp-2 font-semibold">{list.title}</div>
         <div className="mb-2 flex items-center gap-1">
           <IconMarker className="h-3.5 w-3.5" />
           {address}
