@@ -1,6 +1,7 @@
 import Divider from '@/app/components/common/Divider';
 import VideoPlayer from '@/app/components/detail/VideoPlayer';
 import DirectionWrap from '@/app/components/direction/DirectionWrap';
+import IconArrowRight from '@/app/components/icons/IconArrowRight';
 import IconMarker from '@/app/components/icons/IconMarker';
 import Map from '@/app/components/Map/Map';
 import axios from '@/app/lib/instance';
@@ -16,7 +17,7 @@ async function DetailPage({
     data: { list },
   } = await axios.get(`${channel}/${id}`);
 
-  const { videoId, thumbnail, timeline, address, title } = list;
+  const { videoId, thumbnail, timeline, address, title, menu } = list;
 
   return (
     <>
@@ -32,10 +33,33 @@ async function DetailPage({
           </div>
         </section>
         <Divider />
+        <section aria-label="가게 이름 및 메뉴">
+          <div className="mb-2 line-clamp-2 text-xl font-semibold">
+            {list.title}
+          </div>
+          <div>
+            <div>영상 속 소개 메뉴</div>
+            {menu instanceof Array ? (
+              menu.map((food) => (
+                <div
+                  key={`${title}_${food}`}
+                  className="flex items-center gap-1"
+                >
+                  <IconArrowRight className="h-4 w-4" />
+                  <span>{food}</span>
+                </div>
+              ))
+            ) : (
+              <div className="flex items-center gap-1">
+                <IconArrowRight className="h-4 w-4" />
+                <span>{menu}</span>
+              </div>
+            )}
+          </div>
+        </section>
         <section aria-label="가게 위치 및 길 찾기">
-          <div className="line-clamp-2 font-semibold">{list.title}</div>
-          <div className="mb-2 flex items-center gap-1">
-            <IconMarker className="h-3.5 w-3.5" />
+          <div className="mb-2 flex gap-1">
+            <IconMarker className="mt-1 h-3.5 w-3.5" />
             {address}
           </div>
           <DirectionWrap />
