@@ -44,7 +44,13 @@ function DirectionMap({ path }: DirectionMapProps) {
     };
   }, [path]);
 
-  return <div id="map" style={{ width: '100%', height: '350px' }} />;
+  return (
+    <div
+      id="map"
+      style={{ width: '100%', height: '350px' }}
+      aria-label="길 찾기 지도"
+    />
+  );
 }
 
 export default DirectionMap;

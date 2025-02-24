@@ -29,7 +29,7 @@ function DirectionWrap() {
       } = await getRoute(start, goal);
       setDirections(traoptimal[0]);
     } catch (error) {
-      console.error('길찾기 실패: error');
+      console.error('길 찾기 실패: error');
     } finally {
       setIsLoading(false);
     }
@@ -51,21 +51,28 @@ function DirectionWrap() {
         type="button"
         className="my-2 flex h-11 w-full items-center justify-center gap-1 rounded-lg bg-emerald-600 font-semibold"
         onClick={handleClick}
+        aria-label="현재 위치에서 목적지까지 길 찾기"
       >
         <IconNavigation className="h-4 w-4" />
         길찾기
       </button>
-      <Dialog ref={dialogRef} title="길찾기 모달" handleClose={closeDialog}>
-        {isLoading ? (
-          <div className="h-[28.5rem] w-full">길찾기 정보를 불러오는 중...</div>
-        ) : directions ? (
-          <>
-            <DirectionDescription summary={directions.summary} />
-            <DirectionMap path={directions.path} />
-          </>
-        ) : (
-          <div className="h-[28.5rem] w-full">길찾기에 실패했습니다.</div>
-        )}
+      <Dialog ref={dialogRef} title="길 찾기 모달" handleClose={closeDialog}>
+        <div aria-live="polite">
+          {isLoading ? (
+            <p className="h-[28.5rem] w-full">
+              길 찾기 정보를 불러오는 중입니다.
+            </p>
+          ) : directions ? (
+            <>
+              <DirectionDescription summary={directions.summary} />
+              <DirectionMap path={directions.path} />
+            </>
+          ) : (
+            <p className="h-[28.5rem] w-full">
+              길 찾기에 실패했습니다. 다시 시도해주세요.
+            </p>
+          )}
+        </div>
       </Dialog>
     </>
   );
