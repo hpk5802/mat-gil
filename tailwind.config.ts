@@ -18,6 +18,8 @@ export default {
         'active-text': '#141414',
         'skeleton-start': '#232526',
         'skeleton-end': '#414345',
+        'dialog-backdrop': 'rgba(0,0,0,0.5)',
+        'dialog-background': '#1E201E',
       },
       fontSize: {
         '4xl': ['2.5rem', { lineHeight: '3rem' }], // 40px / 48px
@@ -36,9 +38,19 @@ export default {
           from: { transform: 'translateX(0)' },
           to: { transform: 'translateX(-50%)' },
         },
+        'show-dialog': {
+          from: { transform: 'translateY(5%)' },
+          to: { transform: 'translateY(0)' },
+        },
+        'show-backdrop': {
+          from: { opacity: '0' },
+          to: { opacity: '1' },
+        },
       },
       animation: {
         wave: 'wave 1.5s ease-in-out infinite',
+        'show-dialog': 'show-dialog 0.3s ease',
+        'show-backdrop': 'show-backdrop 0.3s ease',
       },
     },
   },

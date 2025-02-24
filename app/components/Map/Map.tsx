@@ -25,7 +25,7 @@ function Map({ address }: MapProps) {
       zoomControl: true,
       zoomControlOptions: {
         position: naver.maps.Position.TOP_RIGHT,
-        style: naver.maps.ZoomControlStyle.LARGE,
+        style: naver.maps.ZoomControlStyle.SMALL,
         legendDisabled: true,
       },
       minZoom: 14,
@@ -53,6 +53,8 @@ function Map({ address }: MapProps) {
         const result = response.v2.addresses[0];
         const lng = Number(result.x);
         const lat = Number(result.y);
+
+        sessionStorage.setItem('destination', `${lng},${lat}`);
 
         initMap(lat, lng);
         setIsLoading(false);

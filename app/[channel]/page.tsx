@@ -10,7 +10,11 @@ async function ChannelHome({
 
   const {
     data: { lists, hasNext },
-  } = await axios.get(channel);
+  } = await axios.get(channel, {
+    params: {
+      limit: 18,
+    },
+  });
 
   return <ListContainer channel={channel} hasNext={hasNext} lists={lists} />;
 }

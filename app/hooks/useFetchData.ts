@@ -18,7 +18,7 @@ const useFetchData = (
     if (!hasNext) return;
 
     const { data } = await axios.get(channel, {
-      params: { cursor },
+      params: { limit: 12, cursor },
     });
 
     setLists((prev) => [...prev, ...data.lists]);
