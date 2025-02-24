@@ -6,16 +6,8 @@ import { useDialog } from '@/app/hooks/useDialog';
 import getRoute from '@/app/lib/getRoute';
 import DirectionMap from '@/app/components/Map/DirectionMap';
 import { Direction } from '@/app/types/directions';
-import {
-  convertMetersToKilometers,
-  convertMilliSecondsToTime,
-  convertPriceToWon,
-} from '@/app/utils/format';
-import IconMarker from '@/app/components/icons/IconMarker';
-import IconClock from '@/app/components/icons/IconClock';
-import IconCharge from '@/app/components/icons/IconCharge';
-import IconHandle from '@/app/components/icons/IconHandle';
-import IconNavigation from '../icons/IconNavigation';
+import IconNavigation from '@/app/components/icons/IconNavigation';
+import DirectionDescription from './DirectionDescription';
 
 function DirectionWrap() {
   const { dialogRef, openDialog, closeDialog } = useDialog();
@@ -68,44 +60,7 @@ function DirectionWrap() {
           <div className="h-[28.5rem] w-full">길찾기 정보를 불러오는 중...</div>
         ) : directions ? (
           <>
-            <div className="mb-2 mt-2 grid grid-cols-2 gap-2">
-              <div className="flex flex-col">
-                <span className="flex items-center gap-0.5 text-md text-gray-300">
-                  <IconMarker className="h-3 w-3" />
-                  거리
-                </span>
-                <span className="font-semibold text-white">
-                  {convertMetersToKilometers(directions.summary.distance)}
-                </span>
-              </div>
-              <div className="flex flex-col">
-                <span className="flex items-center gap-0.5 text-md text-gray-300">
-                  <IconClock className="h-3 w-3" />
-                  예상 시간
-                </span>
-                <span className="font-semibold text-white">
-                  {convertMilliSecondsToTime(directions.summary.duration)}
-                </span>
-              </div>
-              <div className="flex flex-col">
-                <span className="flex items-center gap-0.5 text-md text-gray-300">
-                  <IconHandle className="h-3 w-3" />
-                  택시요금
-                </span>
-                <span className="font-semibold text-white">
-                  {convertPriceToWon(directions.summary.taxiFare)}
-                </span>
-              </div>
-              <div className="flex flex-col">
-                <span className="flex items-center gap-0.5 text-md text-gray-300">
-                  <IconCharge className="h-3 w-3" />
-                  통행료
-                </span>
-                <span className="font-semibold text-white">
-                  {convertPriceToWon(directions.summary.tollFare)}
-                </span>
-              </div>
-            </div>
+            <DirectionDescription summary={directions.summary} />
             <DirectionMap path={directions.path} />
           </>
         ) : (
