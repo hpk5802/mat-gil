@@ -24,10 +24,12 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-.hide-scroll {
-  -ms-overflow-style: none; /* IE */
-  scrollbar-width: none; /* Firefox */
-}
-.hide-scroll::-webkit-scrollbar {
-  display: none; /* Chrome, Safari, Opera, Edge */
+@layer components {
+  .skeleton {
+    @apply relative overflow-hidden before:absolute before:h-full before:w-[200%] before:animate-wave before:bg-gradient-to-r before:from-skeleton-start before:to-skeleton-end;
+  }
+
+  .skeleton-rounded {
+    @apply relative overflow-hidden rounded-md before:absolute before:h-full before:w-[200%] before:animate-wave before:bg-gradient-to-r before:from-skeleton-start before:to-skeleton-end;
+  }
 }
