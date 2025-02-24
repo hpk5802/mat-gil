@@ -1,6 +1,12 @@
 function SkeletonImage() {
   return (
-    <div className="h-full w-full before:absolute before:h-full before:w-[200%] before:animate-wave before:bg-gradient-to-r before:from-skeleton-start before:to-skeleton-end" />
+    <div
+      className="skeleton h-full w-full"
+      aria-live="polite"
+      aria-busy="true"
+      aria-label="이미지 로딩 중"
+      role="img"
+    />
   );
 }
 
