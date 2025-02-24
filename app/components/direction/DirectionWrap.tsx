@@ -45,7 +45,7 @@ function DirectionWrap() {
     }
   };
 
-  const handleClick = () => {
+  const findRouteFromCurrentLocation = () => {
     if (!('geolocation' in navigator)) {
       alert('브라우저가 위치 조회를 지원하지 않습니다.');
       return;
@@ -59,7 +59,7 @@ function DirectionWrap() {
       <button
         type="button"
         className="my-2 flex h-11 w-full items-center justify-center gap-1 rounded-lg bg-emerald-600 font-semibold"
-        onClick={handleClick}
+        onClick={findRouteFromCurrentLocation}
         aria-label="현재 위치에서 목적지까지 길 찾기"
       >
         <IconNavigation className="h-4 w-4" />
