@@ -13,8 +13,8 @@ function Menu({ menu }: { menu: string[] }) {
 
   return (
     <div>
-      <h3 className="text-lg" aria-label="영상 속 소개된 메뉴 목록">
-        영상 속 소개 메뉴
+      <h3 className="text-lg" aria-label="영상에서 소개된 메뉴 목록">
+        영상에서 소개된 메뉴
       </h3>
       <ul className="mt-2 flex flex-col gap-1">
         {visibleMenu.map((menu) => (
@@ -26,14 +26,16 @@ function Menu({ menu }: { menu: string[] }) {
           </li>
         ))}
       </ul>
-      <button
-        type="button"
-        className="mt-3 rounded-md bg-emerald-600 px-3 py-1 font-medium"
-        onClick={toggleMenuVisibility}
-        aria-expanded={isExpanded}
-      >
-        {isExpanded ? '간략히 보기' : '더 보기'}
-      </button>
+      {menu.length > 3 && (
+        <button
+          type="button"
+          className="mt-3 rounded-md bg-emerald-600 px-3 py-1 font-medium"
+          onClick={toggleMenuVisibility}
+          aria-expanded={isExpanded}
+        >
+          {isExpanded ? '간략히 보기' : '더 보기'}
+        </button>
+      )}
     </div>
   );
 }
