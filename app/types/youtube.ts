@@ -7,7 +7,7 @@ interface YoutubeData {
   category: string | string[];
   address: string;
   title: string;
-  menu: string | string[];
+  menu: string[];
   timeline: string;
 }
 
