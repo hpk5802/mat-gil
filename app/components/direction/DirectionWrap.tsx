@@ -7,6 +7,8 @@ import getRoute from '@/app/lib/getRoute';
 import DirectionMap from '@/app/components/Map/DirectionMap';
 import { Direction } from '@/app/types/directions';
 import IconNavigation from '@/app/components/icons/IconNavigation';
+import DirectionDescriptionSkeleton from '@/app/components/direction/DirectionDescriptionSkeleton';
+import DirectionMapSkeleton from '@/app/components/Map/DirectionMapSkeleton';
 import DirectionDescription from './DirectionDescription';
 
 function DirectionWrap() {
@@ -59,9 +61,10 @@ function DirectionWrap() {
       <Dialog ref={dialogRef} title="길 찾기 모달" handleClose={closeDialog}>
         <div aria-live="polite">
           {isLoading ? (
-            <p className="h-[28.5rem] w-full">
-              길 찾기 정보를 불러오는 중입니다.
-            </p>
+            <>
+              <DirectionDescriptionSkeleton />
+              <DirectionMapSkeleton />
+            </>
           ) : directions ? (
             <>
               <DirectionDescription summary={directions.summary} />
