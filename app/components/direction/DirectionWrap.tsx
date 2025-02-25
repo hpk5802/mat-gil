@@ -34,6 +34,7 @@ function DirectionWrap() {
     const start = `${longitude},${latitude}`;
     const goal = sessionStorage.getItem('destination') || '';
 
+    openDialog();
     setIsError(false);
     setIsLoading(true);
 
@@ -67,7 +68,6 @@ function DirectionWrap() {
       return;
     }
 
-    openDialog();
     requestCurrentLoaction();
   };
 
