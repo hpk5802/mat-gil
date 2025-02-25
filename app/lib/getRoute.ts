@@ -7,10 +7,11 @@ type RouteResponse = {
   };
 };
 
-const getRoute = async (start: string, goal: string) => {
+const getRoute = async (start: string, goal: string, signal: AbortSignal) => {
   try {
     const res = await axios.get<RouteResponse>('directions', {
       params: { start, goal },
+      signal,
     });
 
     return {

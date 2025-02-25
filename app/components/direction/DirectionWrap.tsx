@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import Dialog from '@/app/components/common/Dialog';
 import { useDialog } from '@/app/hooks/useDialog';
 import getRoute from '@/app/lib/getRoute';
@@ -18,6 +18,7 @@ function DirectionWrap() {
   const [directions, setDirections] = useState<Direction | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
+  const aborControllerRef = useRef<AbortController | null>(null);
 
   const requestCurrentLoaction = async () => {
     setIsError(false);
@@ -44,7 +45,16 @@ function DirectionWrap() {
     const start = `${longitude},${latitude}`;
     const goal = sessionStorage.getItem('destination') || '';
 
-    const { data, isError } = await getRoute(start, goal);
+    if (aborControllerRef.current) {
+      aborControllerRef.current.abort();
+    }
+    aborControllerRef.current = new AbortController();
+
+    const { data, isError } = await getRoute(
+      start,
+      goal,
+      aborControllerRef.current.signal,
+    );
 
     if (isError || !data) {
       setIsError(true);
@@ -67,6 +77,15 @@ function DirectionWrap() {
       alert('위치 조회 실패: 위치 정보를 가져오는 데 시간이 초과되었습니다.');
     }
 
+    closeDialogAndCancelRequest();
+  };
+
+  const closeDialogAndCancelRequest = () => {
+    if (aborControllerRef.current) {
+      aborControllerRef.current.abort();
+    }
+
+    setIsLoading(false);
     closeDialog();
   };
 
@@ -93,7 +112,11 @@ function DirectionWrap() {
         <IconNavigation className="h-4 w-4" />
         <span>길 찾기</span>
       </button>
-      <Dialog ref={dialogRef} title="길 찾기 모달" handleClose={closeDialog}>
+      <Dialog
+        ref={dialogRef}
+        title="길 찾기 모달"
+        handleClose={closeDialogAndCancelRequest}
+      >
         <div aria-live="polite">
           {isLoading ? (
             <>
