@@ -31,6 +31,11 @@ function DirectionWrap() {
         },
       );
 
+      if (aborControllerRef.current) {
+        aborControllerRef.current.abort();
+      }
+      aborControllerRef.current = new AbortController();
+
       await findRouteFromCurrentLocation(position);
     } catch (error) {
       handleError(error as GeolocationPositionError);
@@ -45,15 +50,10 @@ function DirectionWrap() {
     const start = `${longitude},${latitude}`;
     const goal = sessionStorage.getItem('destination') || '';
 
-    if (aborControllerRef.current) {
-      aborControllerRef.current.abort();
-    }
-    aborControllerRef.current = new AbortController();
-
     const { data, isError } = await getRoute(
       start,
       goal,
-      aborControllerRef.current.signal,
+      aborControllerRef.current?.signal,
     );
 
     if (isError || !data) {
