@@ -12,7 +12,6 @@ import DirectionMapSkeleton from '@/app/components/Map/DirectionMapSkeleton';
 import DirectionDescription from './DirectionDescription';
 import IconRetry from '@/app/components/icons/IconRetry';
 import IconInfo from '@/app/components/icons/IconInfo';
-import useDebounce from '@/app/hooks/useDebounce';
 import handleGeolocationError from '@/app/utils/handleGeolocationError';
 
 function DirectionWrap() {
@@ -84,11 +83,6 @@ function DirectionWrap() {
     closeDialog();
   };
 
-  const debouncedRequestCurrentLocation = useDebounce(
-    requestCurrentLoaction,
-    500,
-  );
-
   const handleFindRouteClick = () => {
     if (!('geolocation' in navigator)) {
       alert('브라우저가 위치 조회를 지원하지 않습니다.');
@@ -96,7 +90,7 @@ function DirectionWrap() {
     }
 
     openDialog();
-    debouncedRequestCurrentLocation();
+    requestCurrentLoaction();
   };
 
   return (
