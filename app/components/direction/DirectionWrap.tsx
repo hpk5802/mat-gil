@@ -19,7 +19,7 @@ function DirectionWrap() {
   const [directions, setDirections] = useState<Direction | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
-  const aborControllerRef = useRef<AbortController | null>(null);
+  const abortControllerRef = useRef<AbortController | null>(null);
 
   const requestCurrentLoaction = async () => {
     if (isLoading) return;
@@ -34,10 +34,10 @@ function DirectionWrap() {
         },
       );
 
-      if (aborControllerRef.current) {
-        aborControllerRef.current.abort();
+      if (abortControllerRef.current) {
+        abortControllerRef.current.abort();
       }
-      aborControllerRef.current = new AbortController();
+      abortControllerRef.current = new AbortController();
 
       await findRouteFromCurrentLocation(position);
     } catch (error) {
@@ -56,7 +56,7 @@ function DirectionWrap() {
     const { data, isError } = await getRoute(
       start,
       goal,
-      aborControllerRef.current?.signal,
+      abortControllerRef.current?.signal,
     );
 
     if (isError || !data) {
@@ -75,8 +75,8 @@ function DirectionWrap() {
   };
 
   const closeDialogAndCancelRequest = () => {
-    if (aborControllerRef.current) {
-      aborControllerRef.current.abort();
+    if (abortControllerRef.current) {
+      abortControllerRef.current.abort();
     }
 
     setIsLoading(false);
