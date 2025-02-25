@@ -19,11 +19,21 @@ function DirectionWrap() {
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
 
-  const requestCurrentLoaction = () => {
-    navigator.geolocation.getCurrentPosition(
-      findRouteFromCurrentLocation,
-      handleError,
-    );
+  const requestCurrentLoaction = async () => {
+    setIsError(false);
+    setIsLoading(true);
+
+    try {
+      const position = await new Promise<GeolocationPosition>(
+        (resolve, reject) => {
+          navigator.geolocation.getCurrentPosition(resolve, reject);
+        },
+      );
+
+      await findRouteFromCurrentLocation(position);
+    } catch (error) {
+      handleError(error as GeolocationPositionError);
+    }
   };
 
   const findRouteFromCurrentLocation = async (
@@ -33,10 +43,6 @@ function DirectionWrap() {
     const longitude = position.coords.longitude;
     const start = `${longitude},${latitude}`;
     const goal = sessionStorage.getItem('destination') || '';
-
-    openDialog();
-    setIsError(false);
-    setIsLoading(true);
 
     const { data, isError } = await getRoute(start, goal);
 
@@ -60,6 +66,8 @@ function DirectionWrap() {
     } else if (error.code === 3) {
       alert('위치 조회 실패: 위치 정보를 가져오는 데 시간이 초과되었습니다.');
     }
+
+    closeDialog();
   };
 
   const handleFindRouteClick = () => {
@@ -67,6 +75,8 @@ function DirectionWrap() {
       alert('브라우저가 위치 조회를 지원하지 않습니다.');
       return;
     }
+
+    openDialog();
 
     requestCurrentLoaction();
   };
