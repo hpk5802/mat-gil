@@ -76,9 +76,7 @@ function DirectionWrap() {
       return;
     }
 
-    if (!dialogRef.current) {
-      openDialog();
-    }
+    openDialog();
 
     requestCurrentLoaction();
   };
