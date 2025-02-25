@@ -130,7 +130,7 @@ function DirectionWrap() {
                 type="button"
                 className="my-2 flex h-11 w-full items-center justify-center gap-1 rounded-lg bg-emerald-600 font-semibold"
                 aria-label="길 찾기 다시 시도"
-                onClick={debouncedRequestCurrentLocation}
+                onClick={requestCurrentLoaction}
               >
                 <span className="text-white">경로 재탐색</span>
                 <IconRetry className="h-4 w-4" />
