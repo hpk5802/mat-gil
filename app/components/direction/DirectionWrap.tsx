@@ -18,14 +18,22 @@ function DirectionWrap() {
   const [directions, setDirections] = useState<Direction | null>(null);
   const [isLoading, setIsLoading] = useState(false);
 
-  const handleSuccess = async (position: GeolocationPosition) => {
+  const requestCurrentLoaction = () => {
+    navigator.geolocation.getCurrentPosition(
+      findRouteFromCurrentLocation,
+      handleError,
+    );
+  };
+
+  const findRouteFromCurrentLocation = async (
+    position: GeolocationPosition,
+  ) => {
     const latitude = position.coords.latitude;
     const longitude = position.coords.longitude;
     const start = `${longitude},${latitude}`;
     const goal = sessionStorage.getItem('destination') || '';
 
     setIsLoading(true);
-    openDialog();
 
     const {
       route: { traoptimal },
@@ -47,13 +55,14 @@ function DirectionWrap() {
     }
   };
 
-  const findRouteFromCurrentLocation = () => {
+  const handleFindRouteClick = () => {
     if (!('geolocation' in navigator)) {
       alert('브라우저가 위치 조회를 지원하지 않습니다.');
       return;
     }
 
-    navigator.geolocation.getCurrentPosition(handleSuccess, handleError);
+    openDialog();
+    requestCurrentLoaction();
   };
 
   return (
@@ -61,7 +70,7 @@ function DirectionWrap() {
       <button
         type="button"
         className="my-2 flex h-11 w-full items-center justify-center gap-1 rounded-lg bg-emerald-600 font-semibold"
-        onClick={findRouteFromCurrentLocation}
+        onClick={handleFindRouteClick}
         aria-label="현재 위치에서 목적지까지 길 찾기"
       >
         <IconNavigation className="h-4 w-4" />
@@ -93,8 +102,9 @@ function DirectionWrap() {
                 type="button"
                 className="my-2 flex h-11 w-full items-center justify-center gap-1 rounded-lg bg-emerald-600 font-semibold"
                 aria-label="길 찾기 다시 시도"
+                onClick={requestCurrentLoaction}
               >
-                <span className="text-white">재시도</span>
+                <span className="text-white">경로 재탐색</span>
                 <IconRetry className="h-4 w-4" />
               </button>
             </div>
