@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef, useState } from 'react';
+import { useCallback, useRef, useState } from 'react';
 import Dialog from '@/app/components/common/Dialog';
 import { useDialog } from '@/app/hooks/useDialog';
 import getRoute from '@/app/lib/getRoute';
@@ -21,6 +21,8 @@ function DirectionWrap() {
   const aborControllerRef = useRef<AbortController | null>(null);
 
   const requestCurrentLoaction = async () => {
+    if (isLoading) return;
+
     setIsError(false);
     setIsLoading(true);
 
