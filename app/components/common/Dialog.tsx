@@ -21,7 +21,7 @@ function Dialog(
   return (
     <dialog
       ref={ref}
-      className="open:animate-show-dialog open:backdrop:animate-show-backdrop bottom-0 top-auto mx-0 my-0 max-h-[80%] w-full max-w-none transform rounded-t-xl bg-dialog-background backdrop:bg-dialog-backdrop md:inset-y-0 md:mx-auto md:my-auto md:w-96 md:rounded-b-xl"
+      className="bottom-0 top-auto mx-0 my-0 max-h-[80%] w-full max-w-none transform rounded-t-xl bg-dialog-background will-change-transform backdrop:bg-dialog-backdrop open:animate-show-dialog open:backdrop:animate-show-backdrop md:inset-y-0 md:mx-auto md:my-auto md:w-96 md:rounded-b-xl"
       onClick={handleCloseDialog}
       role="dialog"
       aria-modal="true"

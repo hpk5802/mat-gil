@@ -8,11 +8,21 @@ type RouteResponse = {
 };
 
 const getRoute = async (start: string, goal: string) => {
-  const res = await axios.get<RouteResponse>('directions', {
-    params: { start, goal },
-  });
+  try {
+    const res = await axios.get<RouteResponse>('directions', {
+      params: { start, goal },
+    });
 
-  return res.data;
+    return {
+      isError: false,
+      data: res.data.route.traoptimal[0] || null,
+    };
+  } catch (error) {
+    return {
+      isError: true,
+      data: null,
+    };
+  }
 };
 
 export default getRoute;

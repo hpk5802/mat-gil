@@ -32,4 +32,8 @@ body {
   .skeleton-rounded {
     @apply relative overflow-hidden rounded-md before:absolute before:h-full before:w-[200%] before:animate-wave before:bg-gradient-to-r before:from-skeleton-start before:to-skeleton-end;
   }
+
+  .loading {
+    @apply disabled:before:bg-disabaled-background relative disabled:before:absolute disabled:before:inset-0 disabled:before:h-full disabled:before:w-full disabled:after:absolute disabled:after:z-[1] disabled:after:h-5 disabled:after:w-5 disabled:after:animate-spin disabled:after:rounded-full disabled:after:border-2 disabled:after:border-white disabled:after:border-b-transparent disabled:after:border-t-transparent;
+  }
 }
