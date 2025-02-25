@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import Dialog from '@/app/components/common/Dialog';
 import { useDialog } from '@/app/hooks/useDialog';
 import getRoute from '@/app/lib/getRoute';
@@ -12,14 +12,18 @@ import DirectionMapSkeleton from '@/app/components/Map/DirectionMapSkeleton';
 import DirectionDescription from './DirectionDescription';
 import IconRetry from '@/app/components/icons/IconRetry';
 import IconInfo from '@/app/components/icons/IconInfo';
+import handleGeolocationError from '@/app/utils/handleGeolocationError';
 
 function DirectionWrap() {
   const { dialogRef, openDialog, closeDialog } = useDialog();
   const [directions, setDirections] = useState<Direction | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
+  const abortControllerRef = useRef<AbortController | null>(null);
 
   const requestCurrentLoaction = async () => {
+    if (isLoading) return;
+
     setIsError(false);
     setIsLoading(true);
 
@@ -29,6 +33,11 @@ function DirectionWrap() {
           navigator.geolocation.getCurrentPosition(resolve, reject);
         },
       );
+
+      if (abortControllerRef.current) {
+        abortControllerRef.current.abort();
+      }
+      abortControllerRef.current = new AbortController();
 
       await findRouteFromCurrentLocation(position);
     } catch (error) {
@@ -44,7 +53,11 @@ function DirectionWrap() {
     const start = `${longitude},${latitude}`;
     const goal = sessionStorage.getItem('destination') || '';
 
-    const { data, isError } = await getRoute(start, goal);
+    const { data, isError } = await getRoute(
+      start,
+      goal,
+      abortControllerRef.current?.signal,
+    );
 
     if (isError || !data) {
       setIsError(true);
@@ -57,16 +70,16 @@ function DirectionWrap() {
   };
 
   const handleError = (error: GeolocationPositionError) => {
-    if (error.code === 1) {
-      alert(
-        '위치 조회 실패: 위치 권한이 거부되었습니다. 설정에서 권한을 허용해주세요.',
-      );
-    } else if (error.code === 2) {
-      alert('위치 조회 실패: 위치 정보를 사용할 수 없습니다.');
-    } else if (error.code === 3) {
-      alert('위치 조회 실패: 위치 정보를 가져오는 데 시간이 초과되었습니다.');
+    handleGeolocationError(error);
+    closeDialogAndCancelRequest();
+  };
+
+  const closeDialogAndCancelRequest = () => {
+    if (abortControllerRef.current) {
+      abortControllerRef.current.abort();
     }
 
+    setIsLoading(false);
     closeDialog();
   };
 
@@ -77,7 +90,6 @@ function DirectionWrap() {
     }
 
     openDialog();
-
     requestCurrentLoaction();
   };
 
@@ -93,7 +105,11 @@ function DirectionWrap() {
         <IconNavigation className="h-4 w-4" />
         <span>길 찾기</span>
       </button>
-      <Dialog ref={dialogRef} title="길 찾기 모달" handleClose={closeDialog}>
+      <Dialog
+        ref={dialogRef}
+        title="길 찾기 모달"
+        handleClose={closeDialogAndCancelRequest}
+      >
         <div aria-live="polite">
           {isLoading ? (
             <>
