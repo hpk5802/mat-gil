@@ -10,81 +10,78 @@ import IconNavigation from '@/app/components/icons/IconNavigation';
 import DirectionDescriptionSkeleton from '@/app/components/direction/DirectionDescriptionSkeleton';
 import DirectionMapSkeleton from '@/app/components/Map/DirectionMapSkeleton';
 import DirectionDescription from './DirectionDescription';
+import IconRetry from '@/app/components/icons/IconRetry';
+import IconInfo from '@/app/components/icons/IconInfo';
 
 function DirectionWrap() {
   const { dialogRef, openDialog, closeDialog } = useDialog();
   const [directions, setDirections] = useState<Direction | null>(null);
   const [isLoading, setIsLoading] = useState(false);
+  const [isError, setIsError] = useState(false);
 
-  const handleSuccess = async (position: GeolocationPosition) => {
+  const requestCurrentLoaction = () => {
+    navigator.geolocation.getCurrentPosition(
+      findRouteFromCurrentLocation,
+      handleError,
+    );
+  };
+
+  const findRouteFromCurrentLocation = async (
+    position: GeolocationPosition,
+  ) => {
     const latitude = position.coords.latitude;
     const longitude = position.coords.longitude;
     const start = `${longitude},${latitude}`;
     const goal = sessionStorage.getItem('destination') || '';
 
+    setIsError(false);
     setIsLoading(true);
-    openDialog();
 
-    try {
-      const {
-        route: { traoptimal },
-      } = await getRoute(start, goal);
-      setDirections(traoptimal[0]);
-    } catch (error) {
-      const geolocationError = error as GeolocationPositionError;
-      console.error(`길 찾기 실패: ${error}`);
-      if (geolocationError.code === 1) {
-        alert('위치 권한이 거부되었습니다.');
-      } else if (geolocationError.code === 2) {
-        alert('위치 정보를 사용할 수 없습니다.');
-      } else if (geolocationError.code === 3) {
-        alert('위치 정보를 가져오는 데 시간이 초과되었습니다.');
-      }
-    } finally {
-      setIsLoading(false);
+    const { data, isError } = await getRoute(start, goal);
+
+    if (isError || !data) {
+      setIsError(true);
+      setDirections(null);
+    } else {
+      setDirections(data);
     }
+
+    setIsLoading(false);
   };
 
   const handleError = (error: GeolocationPositionError) => {
-    alert(`위치 조회 실패: ${error.code} / ${error.message}`);
+    if (error.code === 1) {
+      alert(
+        '위치 조회 실패: 위치 권한이 거부되었습니다. 설정에서 권한을 허용해주세요.',
+      );
+    } else if (error.code === 2) {
+      alert('위치 조회 실패: 위치 정보를 사용할 수 없습니다.');
+    } else if (error.code === 3) {
+      alert('위치 조회 실패: 위치 정보를 가져오는 데 시간이 초과되었습니다.');
+    }
   };
 
-  const handleClick = async () => {
+  const handleFindRouteClick = () => {
     if (!('geolocation' in navigator)) {
       alert('브라우저가 위치 조회를 지원하지 않습니다.');
       return;
     }
 
-    try {
-      const permissionsStatus = await navigator.permissions.query({
-        name: 'geolocation',
-      });
-
-      if (permissionsStatus.state === 'denied') {
-        alert('위치 권한이 차단되었습니다. 위치 권한 설정을 허용해주세요.');
-        return;
-      }
-
-      if (permissionsStatus.state === 'prompt') {
-        alert('현재 위치를 사용하시려면 권한을 허용해주세요.');
-      }
-
-      navigator.geolocation.getCurrentPosition(handleSuccess, handleError);
-    } catch (error) {
-      alert(`위치 권한 확인 중 오류가 발생했습니다: ${error}`);
-    }
+    openDialog();
+    requestCurrentLoaction();
   };
 
   return (
     <>
       <button
         type="button"
-        className="my-2 flex h-11 w-full items-center justify-center gap-1 rounded-lg bg-emerald-600 font-semibold"
-        onClick={handleClick}
+        className="loading my-2 flex h-11 w-full items-center justify-center gap-1 rounded-lg bg-emerald-600 font-semibold"
+        onClick={handleFindRouteClick}
         aria-label="현재 위치에서 목적지까지 길 찾기"
+        disabled={isLoading}
       >
         <IconNavigation className="h-4 w-4" />
-        길찾기
+        <span>길 찾기</span>
       </button>
       <Dialog ref={dialogRef} title="길 찾기 모달" handleClose={closeDialog}>
         <div aria-live="polite">
@@ -93,15 +90,33 @@ function DirectionWrap() {
               <DirectionDescriptionSkeleton />
               <DirectionMapSkeleton />
             </>
-          ) : directions ? (
-            <>
-              <DirectionDescription summary={directions.summary} />
-              <DirectionMap path={directions.path} />
-            </>
+          ) : isError ? (
+            <div className="flex h-[28.5rem] w-full flex-col items-center justify-center gap-3">
+              <div className="flex flex-1 flex-col items-center justify-center gap-6">
+                <IconInfo className="h-10 w-10" />
+                <p className="text-center text-white">
+                  길 찾기에 실패했습니다.
+                  <br />
+                  다시 시도해주세요.
+                </p>
+              </div>
+              <button
+                type="button"
+                className="my-2 flex h-11 w-full items-center justify-center gap-1 rounded-lg bg-emerald-600 font-semibold"
+                aria-label="길 찾기 다시 시도"
+                onClick={requestCurrentLoaction}
+              >
+                <span className="text-white">경로 재탐색</span>
+                <IconRetry className="h-4 w-4" />
+              </button>
+            </div>
           ) : (
-            <p className="h-[28.5rem] w-full">
-              길 찾기에 실패했습니다. 다시 시도해주세요.
-            </p>
+            directions && (
+              <>
+                <DirectionDescription summary={directions.summary} />
+                <DirectionMap path={directions.path} />
+              </>
+            )
           )}
         </div>
       </Dialog>
