@@ -1,6 +1,6 @@
 'use client';
 
-import { useCallback, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import Dialog from '@/app/components/common/Dialog';
 import { useDialog } from '@/app/hooks/useDialog';
 import getRoute from '@/app/lib/getRoute';
@@ -19,6 +19,7 @@ function DirectionWrap() {
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
   const aborControllerRef = useRef<AbortController | null>(null);
+  const deboundRef = useRef<NodeJS.Timeout | null>(null);
 
   const requestCurrentLoaction = async () => {
     if (isLoading) return;
@@ -33,12 +34,18 @@ function DirectionWrap() {
         },
       );
 
-      if (aborControllerRef.current) {
-        aborControllerRef.current.abort();
+      if (deboundRef.current) {
+        clearTimeout(deboundRef.current);
       }
-      aborControllerRef.current = new AbortController();
 
-      await findRouteFromCurrentLocation(position);
+      deboundRef.current = setTimeout(async () => {
+        if (aborControllerRef.current) {
+          aborControllerRef.current.abort();
+        }
+        aborControllerRef.current = new AbortController();
+
+        await findRouteFromCurrentLocation(position);
+      }, 500);
     } catch (error) {
       handleError(error as GeolocationPositionError);
     }
