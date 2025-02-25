@@ -17,6 +17,7 @@ function DirectionWrap() {
   const { dialogRef, openDialog, closeDialog } = useDialog();
   const [directions, setDirections] = useState<Direction | null>(null);
   const [isLoading, setIsLoading] = useState(false);
+  const [isError, setIsError] = useState(false);
 
   const requestCurrentLoaction = () => {
     navigator.geolocation.getCurrentPosition(
@@ -33,13 +34,18 @@ function DirectionWrap() {
     const start = `${longitude},${latitude}`;
     const goal = sessionStorage.getItem('destination') || '';
 
+    setIsError(false);
     setIsLoading(true);
 
-    const {
-      route: { traoptimal },
-    } = await getRoute(start, goal);
+    const { data, isError } = await getRoute(start, goal);
 
-    setDirections(traoptimal[0]);
+    if (isError || !data) {
+      setIsError(true);
+      setDirections(null);
+    } else {
+      setDirections(data);
+    }
+
     setIsLoading(false);
   };
 
@@ -83,12 +89,7 @@ function DirectionWrap() {
               <DirectionDescriptionSkeleton />
               <DirectionMapSkeleton />
             </>
-          ) : directions ? (
-            <>
-              <DirectionDescription summary={directions.summary} />
-              <DirectionMap path={directions.path} />
-            </>
-          ) : (
+          ) : isError ? (
             <div className="flex h-[28.5rem] w-full flex-col items-center justify-center gap-3">
               <div className="flex flex-1 flex-col items-center justify-center gap-6">
                 <IconInfo className="h-10 w-10" />
@@ -108,6 +109,13 @@ function DirectionWrap() {
                 <IconRetry className="h-4 w-4" />
               </button>
             </div>
+          ) : (
+            directions && (
+              <>
+                <DirectionDescription summary={directions.summary} />
+                <DirectionMap path={directions.path} />
+              </>
+            )
           )}
         </div>
       </Dialog>
