@@ -10,6 +10,8 @@ import IconNavigation from '@/app/components/icons/IconNavigation';
 import DirectionDescriptionSkeleton from '@/app/components/direction/DirectionDescriptionSkeleton';
 import DirectionMapSkeleton from '@/app/components/Map/DirectionMapSkeleton';
 import DirectionDescription from './DirectionDescription';
+import IconRetry from '@/app/components/icons/IconRetry';
+import IconInfo from '@/app/components/icons/IconInfo';
 
 function DirectionWrap() {
   const { dialogRef, openDialog, closeDialog } = useDialog();
@@ -78,9 +80,24 @@ function DirectionWrap() {
               <DirectionMap path={directions.path} />
             </>
           ) : (
-            <p className="h-[28.5rem] w-full">
-              길 찾기에 실패했습니다. 다시 시도해주세요.
-            </p>
+            <div className="flex h-[28.5rem] w-full flex-col items-center justify-center gap-3">
+              <div className="flex flex-1 flex-col items-center justify-center gap-6">
+                <IconInfo className="h-10 w-10" />
+                <p className="text-center text-white">
+                  길 찾기에 실패했습니다.
+                  <br />
+                  다시 시도해주세요.
+                </p>
+              </div>
+              <button
+                type="button"
+                className="my-2 flex h-11 w-full items-center justify-center gap-1 rounded-lg bg-emerald-600 font-semibold"
+                aria-label="길 찾기 다시 시도"
+              >
+                <span className="text-white">재시도</span>
+                <IconRetry className="h-4 w-4" />
+              </button>
+            </div>
           )}
         </div>
       </Dialog>
