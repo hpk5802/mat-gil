@@ -12,6 +12,7 @@ import DirectionMapSkeleton from '@/app/components/Map/DirectionMapSkeleton';
 import DirectionDescription from './DirectionDescription';
 import IconRetry from '@/app/components/icons/IconRetry';
 import IconInfo from '@/app/components/icons/IconInfo';
+import useDebounce from '@/app/hooks/useDebounce';
 
 function DirectionWrap() {
   const { dialogRef, openDialog, closeDialog } = useDialog();
@@ -19,7 +20,6 @@ function DirectionWrap() {
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
   const aborControllerRef = useRef<AbortController | null>(null);
-  const deboundRef = useRef<NodeJS.Timeout | null>(null);
 
   const requestCurrentLoaction = async () => {
     if (isLoading) return;
@@ -34,18 +34,12 @@ function DirectionWrap() {
         },
       );
 
-      if (deboundRef.current) {
-        clearTimeout(deboundRef.current);
+      if (aborControllerRef.current) {
+        aborControllerRef.current.abort();
       }
+      aborControllerRef.current = new AbortController();
 
-      deboundRef.current = setTimeout(async () => {
-        if (aborControllerRef.current) {
-          aborControllerRef.current.abort();
-        }
-        aborControllerRef.current = new AbortController();
-
-        await findRouteFromCurrentLocation(position);
-      }, 500);
+      await findRouteFromCurrentLocation(position);
     } catch (error) {
       handleError(error as GeolocationPositionError);
     }
@@ -98,6 +92,11 @@ function DirectionWrap() {
     closeDialog();
   };
 
+  const debouncedRequestCurrentLocation = useDebounce(
+    requestCurrentLoaction,
+    500,
+  );
+
   const handleFindRouteClick = () => {
     if (!('geolocation' in navigator)) {
       alert('브라우저가 위치 조회를 지원하지 않습니다.');
@@ -105,8 +104,7 @@ function DirectionWrap() {
     }
 
     openDialog();
-
-    requestCurrentLoaction();
+    debouncedRequestCurrentLocation();
   };
 
   return (
@@ -146,7 +144,7 @@ function DirectionWrap() {
                 type="button"
                 className="my-2 flex h-11 w-full items-center justify-center gap-1 rounded-lg bg-emerald-600 font-semibold"
                 aria-label="길 찾기 다시 시도"
-                onClick={requestCurrentLoaction}
+                onClick={debouncedRequestCurrentLocation}
               >
                 <span className="text-white">경로 재탐색</span>
                 <IconRetry className="h-4 w-4" />
