@@ -75,12 +75,13 @@ function DirectionWrap() {
     <>
       <button
         type="button"
-        className="my-2 flex h-11 w-full items-center justify-center gap-1 rounded-lg bg-emerald-600 font-semibold"
+        className="loading my-2 flex h-11 w-full items-center justify-center gap-1 rounded-lg bg-emerald-600 font-semibold"
         onClick={handleFindRouteClick}
         aria-label="현재 위치에서 목적지까지 길 찾기"
+        disabled={isLoading}
       >
         <IconNavigation className="h-4 w-4" />
-        길찾기
+        <span>길 찾기</span>
       </button>
       <Dialog ref={dialogRef} title="길 찾기 모달" handleClose={closeDialog}>
         <div aria-live="polite">
