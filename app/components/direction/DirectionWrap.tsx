@@ -53,7 +53,6 @@ function DirectionWrap() {
             },
             {
               enableHighAccuracy: true,
-              maximumAge: 0,
             },
           );
         },
