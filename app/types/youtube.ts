@@ -11,4 +11,11 @@ interface YoutubeData {
   timeline: string;
 }
 
-export type { YoutubeData };
+interface ChannelResponse {
+  success: boolean;
+  lists: YoutubeData[];
+  hasNext: boolean;
+  nextCursor: number | null;
+}
+
+export type { YoutubeData, ChannelResponse };
