@@ -8,15 +8,18 @@ function ListContainer({
   lists: initialLists,
   channel,
   hasNext: initialHasNext,
+  nextCursor,
 }: {
   lists: YoutubeData[];
   channel: string;
   hasNext: boolean;
+  nextCursor: number | null;
 }) {
   const { lists, hasNext, endRef } = useFetchData(
     channel,
     initialLists,
     initialHasNext,
+    nextCursor,
   );
 
   return (

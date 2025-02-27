@@ -16,9 +16,8 @@ function Tag({ children, href, isActive }: PropsWithChildren<TagInteface>) {
           : 'text-white'
       }`}
       tabIndex={isActive ? -1 : 0}
-      role="link"
+      role="listitem"
       aria-current={isActive ? 'page' : undefined}
-      aria-disabled={isActive ? true : undefined}
     >
       {children}
     </Link>
