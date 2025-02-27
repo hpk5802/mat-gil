@@ -1,6 +1,6 @@
-import axios from 'axios';
+import axios, { AxiosResponse } from 'axios';
 import type { MetadataRoute } from 'next';
-import { YoutubeData } from './types/youtube';
+import { ChannelResponse, YoutubeData } from '@/app/types/youtube';
 
 async function getDynamicPathsFromAPI() {
   const channels = [
@@ -13,19 +13,34 @@ async function getDynamicPathsFromAPI() {
   const allPaths: MetadataRoute.Sitemap = [];
 
   for (const channel of channels) {
-    const response = await axios.get(
-      `https://mat-gil.vercel.app/api/${channel}`,
-    );
-    const data = response.data;
+    let hasNext = true;
+    let nextCursor: number | null = null;
 
-    data.forEach((item: YoutubeData) => {
-      allPaths.push({
-        url: `https://mat-gil.vercel.app/${channel}/${item.position}`,
-        lastModified: new Date(),
-        changeFrequency: 'daily',
-        priority: 0.7,
+    while (hasNext) {
+      const response: AxiosResponse<ChannelResponse> = await axios.get(
+        `https://mat-gil.vercel.app/api/${channel}`,
+        {
+          params: { cursor: nextCursor, limit: 12 },
+        },
+      );
+      const {
+        lists,
+        hasNext: newHasNext,
+        nextCursor: newNextCursor,
+      } = response.data;
+
+      lists.forEach((item: YoutubeData) => {
+        allPaths.push({
+          url: `https://mat-gil.vercel.app/${channel}/${item.position}`,
+          lastModified: new Date(),
+          changeFrequency: 'daily',
+          priority: 0.7,
+        });
       });
-    });
+
+      nextCursor = newNextCursor;
+      hasNext = newHasNext;
+    }
   }
 
   return allPaths;
