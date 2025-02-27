@@ -1,6 +1,6 @@
 import path from 'path';
 import { promises as fs } from 'fs';
-import { YoutubeData } from '@/app/types/youtube';
+import { ChannelResponse, YoutubeData } from '@/app/types/youtube';
 
 export async function GET(request: Request): Promise<Response> {
   try {
@@ -39,18 +39,17 @@ export async function GET(request: Request): Promise<Response> {
       ? limitedData[limitedData.length - 1].position
       : null;
 
-    return new Response(
-      JSON.stringify({
-        success: true,
-        lists: limitedData,
-        hasNext,
-        nextCursor,
-      }),
-      {
-        status: 200,
-        headers: { 'Content-Type': 'application/json' },
-      },
-    );
+    const responseData: ChannelResponse = {
+      success: true,
+      lists: limitedData,
+      hasNext,
+      nextCursor,
+    };
+
+    return new Response(JSON.stringify(responseData), {
+      status: 200,
+      headers: { 'Content-Type': 'application/json' },
+    });
   } catch (error) {
     console.error('데이터를 받아오는 중 에러가 발생했습니다:', error);
     return new Response(
