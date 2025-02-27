@@ -1,5 +1,5 @@
 import { useCallback, useState } from 'react';
-import { YoutubeData } from '../types/youtube';
+import { ChannelResponse, YoutubeData } from '../types/youtube';
 import axios from '@/app/lib/instance';
 import useIntersectionObserver from '@/app/hooks/useIntersectionObserver';
 
@@ -16,14 +16,12 @@ const useFetchData = (
   const fetchData = useCallback(async () => {
     if (!hasNext) return;
 
-    const { data } = await axios.get(channel, {
+    const { data } = await axios.get<ChannelResponse>(channel, {
       params: { limit: 12, cursor },
     });
 
     setLists((prev) => [...prev, ...data.lists]);
-    setCursor(
-      data.lists.length > 0 ? data.lists[data.lists.length - 1].position : null,
-    );
+    setCursor(data.nextCursor);
     setHasNext(data.hasNext);
   }, [cursor, hasNext, channel]);
 
