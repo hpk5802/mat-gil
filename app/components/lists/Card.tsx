@@ -26,9 +26,9 @@ function Card({ channel, lists }: CardInterface) {
           </div>
           <div className="h-full bg-card-background p-3 md:h-[5.5rem]">
             <Category keyValue={`${channel}_${position}`} category={category} />
-            <h3 className="line-clamp-1 text-sm font-semibold text-gray-100 md:text-base">
+            <h2 className="line-clamp-1 text-sm font-semibold text-gray-100 md:text-base">
               {title}
-            </h3>
+            </h2>
             <div className="mt-1 flex items-center justify-end gap-0.5 text-xs text-gray-100 md:text-sm">
               <IconMarker className="h-3.5 w-3.5" />
               {location}
