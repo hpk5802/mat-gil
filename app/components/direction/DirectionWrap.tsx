@@ -27,25 +27,11 @@ function DirectionWrap() {
     setIsError(false);
     setIsLoading(true);
 
-    console.log(`[디버깅] 위치 요청 시작 : ${new Date().toISOString}`);
-
     try {
       const position = await new Promise<GeolocationPosition>(
         (resolve, reject) => {
-          const startTime = performance.now();
-
           navigator.geolocation.getCurrentPosition(
             (position) => {
-              const endTime = performance.now();
-
-              console.log(
-                `[디버깅] 위치 요청 성공 - 소요 시간: ${endTime - startTime}ms`,
-              );
-              console.log('[디버깅] 위치 정보', {
-                latitude: position.coords.latitude,
-                longitude: position.coords.longitude,
-              });
-
               resolve(position);
             },
             (error) => {
