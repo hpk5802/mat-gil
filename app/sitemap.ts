@@ -1,6 +1,16 @@
 import axios, { AxiosResponse } from 'axios';
 import type { MetadataRoute } from 'next';
 import { ChannelResponse, YoutubeData } from '@/app/types/youtube';
+import path from 'path';
+import { promises as fs } from 'fs';
+
+async function getChannelMaxCount(channel: string): Promise<number> {
+  const filePath = path.join(process.cwd(), 'data', `${channel}.json`);
+  const fileContents = await fs.readFile(filePath, 'utf-8');
+  const data: YoutubeData[] = JSON.parse(fileContents);
+
+  return data.length;
+}
 
 async function getDynamicPathsFromAPI() {
   const channels = [
@@ -13,34 +23,27 @@ async function getDynamicPathsFromAPI() {
   const allPaths: MetadataRoute.Sitemap = [];
 
   const fetchChannelPaths = channels.map(async (channel) => {
-    let hasNext = true;
+    const maxCount = await getChannelMaxCount(channel);
     let nextCursor: number | null = null;
 
-    while (hasNext) {
-      const response: AxiosResponse<ChannelResponse> = await axios.get(
-        `https://mat-gil.vercel.app/api/${channel}`,
-        {
-          params: { cursor: nextCursor, limit: 12 },
-        },
-      );
-      const {
-        lists,
-        hasNext: newHasNext,
-        nextCursor: newNextCursor,
-      } = response.data;
+    const response: AxiosResponse<ChannelResponse> = await axios.get(
+      `https://mat-gil.vercel.app/api/${channel}`,
+      {
+        params: { cursor: nextCursor, limit: maxCount },
+      },
+    );
+    const { lists, nextCursor: newNextCursor } = response.data;
 
-      lists.forEach((item: YoutubeData) => {
-        allPaths.push({
-          url: `https://mat-gil.vercel.app/${channel}/${item.position}`,
-          lastModified: new Date(),
-          changeFrequency: 'daily',
-          priority: 0.7,
-        });
+    lists.forEach((item: YoutubeData) => {
+      allPaths.push({
+        url: `https://mat-gil.vercel.app/${channel}/${item.position}`,
+        lastModified: new Date(),
+        changeFrequency: 'daily',
+        priority: 0.7,
       });
+    });
 
-      nextCursor = newNextCursor;
-      hasNext = newHasNext;
-    }
+    nextCursor = newNextCursor;
   });
 
   await Promise.all(fetchChannelPaths);
@@ -57,6 +60,36 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       lastModified: new Date(),
       changeFrequency: 'daily',
       priority: 1,
+    },
+    {
+      url: 'https://mat-gil.vercel.app/pungja',
+      lastModified: new Date(),
+      changeFrequency: 'daily',
+      priority: 0.7,
+    },
+    {
+      url: 'https://mat-gil.vercel.app/seongsigyeong',
+      lastModified: new Date(),
+      changeFrequency: 'daily',
+      priority: 0.7,
+    },
+    {
+      url: 'https://mat-gil.vercel.app/hongseokcheon',
+      lastModified: new Date(),
+      changeFrequency: 'daily',
+      priority: 0.7,
+    },
+    {
+      url: 'https://mat-gil.vercel.app/haennim',
+      lastModified: new Date(),
+      changeFrequency: 'daily',
+      priority: 0.7,
+    },
+    {
+      url: 'https://mat-gil.vercel.app/baekjongwon',
+      lastModified: new Date(),
+      changeFrequency: 'daily',
+      priority: 0.7,
     },
     ...dynamicPaths,
   ];
