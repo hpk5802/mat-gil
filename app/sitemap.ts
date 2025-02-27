@@ -12,7 +12,7 @@ async function getDynamicPathsFromAPI() {
   ];
   const allPaths: MetadataRoute.Sitemap = [];
 
-  for (const channel of channels) {
+  const fetchChannelPaths = channels.map(async (channel) => {
     let hasNext = true;
     let nextCursor: number | null = null;
 
@@ -41,7 +41,9 @@ async function getDynamicPathsFromAPI() {
       nextCursor = newNextCursor;
       hasNext = newHasNext;
     }
-  }
+  });
+
+  await Promise.all(fetchChannelPaths);
 
   return allPaths;
 }
