@@ -9,14 +9,21 @@ async function ChannelHome({
   const { channel } = await params;
 
   const {
-    data: { lists, hasNext },
+    data: { lists, hasNext, nextCursor },
   } = await axios.get(channel, {
     params: {
       limit: 18,
     },
   });
 
-  return <ListContainer channel={channel} hasNext={hasNext} lists={lists} />;
+  return (
+    <ListContainer
+      channel={channel}
+      hasNext={hasNext}
+      nextCursor={nextCursor}
+      lists={lists}
+    />
+  );
 }
 
 export default ChannelHome;

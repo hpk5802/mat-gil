@@ -7,11 +7,10 @@ const useFetchData = (
   channel: string,
   initialLists: YoutubeData[],
   initialHasNext: boolean,
+  nextCursor: number | null,
 ) => {
   const [lists, setLists] = useState<YoutubeData[]>(initialLists);
-  const [cursor, setCursor] = useState(
-    initialLists[initialLists.length - 1].position,
-  );
+  const [cursor, setCursor] = useState(nextCursor);
   const [hasNext, setHasNext] = useState(initialHasNext);
 
   const fetchData = useCallback(async () => {

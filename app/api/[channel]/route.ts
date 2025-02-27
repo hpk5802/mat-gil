@@ -33,10 +33,19 @@ export async function GET(request: Request): Promise<Response> {
     const limitedData = filteredData.slice(0, limit);
 
     // hasNext 설정 (더 가져올 데이터가 있는지 확인)
-    const hasNext = filteredData.length > limit;
+    const hasNext = filteredData.length > limit + 1;
+
+    const nextCursor = hasNext
+      ? limitedData[limitedData.length - 1].position
+      : null;
 
     return new Response(
-      JSON.stringify({ success: true, lists: limitedData, hasNext }),
+      JSON.stringify({
+        success: true,
+        lists: limitedData,
+        hasNext,
+        nextCursor,
+      }),
       {
         status: 200,
         headers: { 'Content-Type': 'application/json' },
