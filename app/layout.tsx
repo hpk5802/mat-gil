@@ -14,6 +14,9 @@ const bagelFatOne = Bagel_Fat_One({
 export const metadata: Metadata = {
   title: '맛길',
   description: '맛집 나한테 맡(맛)길래?',
+  verification: {
+    google: '1Osq17NvlbMi8cqt4h7IL_MG--hzY-1wTAkTgA4I1hI',
+  },
 };
 
 export default function RootLayout({
