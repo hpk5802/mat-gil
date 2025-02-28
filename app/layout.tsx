@@ -65,10 +65,6 @@ export const metadata: Metadata = {
   verification: {
     google: '1Osq17NvlbMi8cqt4h7IL_MG--hzY-1wTAkTgA4I1hI',
   },
-  openGraph: {
-    type: 'website',
-    siteName: '맛길',
-  },
 };
 
 export default function RootLayout({
