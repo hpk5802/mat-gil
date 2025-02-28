@@ -5,6 +5,47 @@ import IconMarker from '@/app/components/icons/IconMarker';
 import Map from '@/app/components/Map/Map';
 import axios from '@/app/lib/instance';
 import Menu from '@/app/components/menu/Menu';
+import { Metadata } from 'next';
+import channelMap from '@/app/constants/channelMap';
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ channel: string; id: string }>;
+}): Promise<Metadata> {
+  const { channel, id } = await params;
+  const {
+    data: { list },
+  } = await axios.get(`${channel}/${id}`);
+  const { title: restaurant } = list;
+
+  const title = `맛길 | 맛집 추천 & 길찾기 | ${channelMap[channel]}`;
+  const description = `${restaurant}의 메뉴와 위치를 확인하고, 길찾기 기능을 통해 해당 매장까지 간편하게 찾아가세요!`;
+  const imageUrl = 'https://mat-gil.vercel.app/images/logo.png';
+
+  return {
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+      url: `https://mat-gil.vercel.app/${channel}/${id}`,
+      images: [
+        {
+          url: imageUrl,
+          width: 1200,
+          height: 630,
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+      images: { url: imageUrl },
+    },
+  };
+}
 
 async function DetailPage({
   params,
