@@ -29,7 +29,7 @@ function Menu({ menu }: { menu: string[] }) {
       {menu.length > 3 && (
         <button
           type="button"
-          className="text-btn-emerald mt-3 rounded-md bg-emerald-600 px-3 py-1 font-medium"
+          className="text-btn-foreground bg-btn-background mt-3 rounded-md px-3 py-1 font-medium"
           onClick={toggleMenuVisibility}
           aria-expanded={isExpanded}
         >
