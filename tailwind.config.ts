@@ -21,6 +21,7 @@ export default {
         'dialog-backdrop': 'rgba(0,0,0,0.5)',
         'dialog-background': '#1E201E',
         'disabaled-background': 'rgba(0,0,0,0.7)',
+        'btn-emerald': '#E3FCEF',
       },
       fontSize: {
         '4xl': ['2.5rem', { lineHeight: '3rem' }], // 40px / 48px
