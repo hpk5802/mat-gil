@@ -1,5 +1,28 @@
 import axios from '@/app/lib/instance';
 import ListContainer from '@/app/components/lists/ListContainer';
+import { Metadata } from 'next';
+import channelMap from '@/app/constants/channelMap';
+
+export async function generateMetadata({
+  params,
+}: {
+  params: { channel: string };
+}): Promise<Metadata> {
+  const { channel } = params;
+
+  const title = `맛길 | 맛집 추천 & 길찾기 | ${channelMap[channel]}`;
+  const description = `${channelMap[channel]}의 인기 맛집 리스트! 유튜브 영상으로 검증된 맛집 위치와 메뉴를 확인하고, 길찾기 기능으로 가까운 맛집에 방문해보세요!`;
+
+  return {
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+      url: `https://mat-gil.vercel.app/${channel}`,
+    },
+  };
+}
 
 async function ChannelHome({
   params,
