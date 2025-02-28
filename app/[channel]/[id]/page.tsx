@@ -11,9 +11,9 @@ import channelMap from '@/app/constants/channelMap';
 export async function generateMetadata({
   params,
 }: {
-  params: { channel: string; id: string };
+  params: Promise<{ channel: string; id: string }>;
 }): Promise<Metadata> {
-  const { channel, id } = params;
+  const { channel, id } = await params;
   const {
     data: { list },
   } = await axios.get(`${channel}/${id}`);
