@@ -8,19 +8,21 @@ interface TagInteface {
 
 function Tag({ children, href, isActive }: PropsWithChildren<TagInteface>) {
   return (
-    <Link
-      href={href}
+    <li
       className={`flex-shrink-0 rounded-full border border-white px-2 py-1.5 text-xs focus:outline-none md:px-3 md:text-md md:focus:bg-neutral-400 ${
         isActive
           ? 'pointer-events-none bg-active-bg font-semibold text-active-text focus:bg-active-bg'
           : 'text-white'
       }`}
-      tabIndex={isActive ? -1 : 0}
-      role="listitem"
-      aria-current={isActive ? 'page' : undefined}
     >
-      {children}
-    </Link>
+      <Link
+        href={href}
+        tabIndex={isActive ? -1 : 0}
+        aria-current={isActive ? 'page' : undefined}
+      >
+        {children}
+      </Link>
+    </li>
   );
 }
 
