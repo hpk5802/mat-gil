@@ -107,13 +107,13 @@ function DirectionWrap() {
     <>
       <button
         type="button"
-        className="loading my-2 flex h-11 w-full items-center justify-center gap-1 rounded-lg bg-emerald-600 font-semibold"
+        className="loading bg-btn-background my-2 flex h-11 w-full items-center justify-center gap-1 rounded-lg font-semibold"
         onClick={handleFindRouteClick}
         aria-label="현재 위치에서 목적지까지 길 찾기"
         disabled={isLoading}
       >
         <IconNavigation className="h-4 w-4" />
-        <span>길 찾기</span>
+        <span className="text-btn-foreground">길 찾기</span>
       </button>
       <Dialog
         ref={dialogRef}
@@ -142,7 +142,7 @@ function DirectionWrap() {
                 aria-label="길 찾기 다시 시도"
                 onClick={requestCurrentLoaction}
               >
-                <span className="text-white">경로 재탐색</span>
+                <span className="text-btn-emerald">경로 재탐색</span>
                 <IconRetry className="h-4 w-4" />
               </button>
             </div>
