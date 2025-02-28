@@ -3,7 +3,7 @@ import IconArrowRight from '@/app/components/icons/IconArrowRight';
 
 interface ScrollButtonProps {
   direction: 'left' | 'right';
-  scrollRef: React.RefObject<HTMLDivElement | null>;
+  scrollRef: React.RefObject<HTMLUListElement | null>;
 }
 
 function ScrollButton({ direction, scrollRef }: ScrollButtonProps) {
