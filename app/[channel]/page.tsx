@@ -26,6 +26,8 @@ export async function generateMetadata({
         width: 1200,
         height: 630,
       },
+      type: 'website',
+      siteName: '맛길',
     },
     twitter: {
       card: 'summary_large_image',
