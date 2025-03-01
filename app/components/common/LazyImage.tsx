@@ -7,9 +7,10 @@ import SkeletonImage from '../Skeleton/SkeletonImage';
 interface LazyImageProps {
   thumbnail: string;
   alt: string;
+  sizes: string;
 }
 
-function LazyImage({ thumbnail, alt }: LazyImageProps) {
+function LazyImage({ thumbnail, alt, sizes }: LazyImageProps) {
   const [isLoading, setIsLoading] = useState(true);
 
   return (
@@ -19,7 +20,7 @@ function LazyImage({ thumbnail, alt }: LazyImageProps) {
         src={thumbnail}
         className="object-cover transition-transform duration-300 will-change-transform group-hover:scale-105"
         fill
-        sizes="(max-width: 768px) 50vw, 32vw"
+        sizes={sizes}
         alt={alt}
         onLoad={() => setIsLoading(false)}
       />

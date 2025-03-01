@@ -25,7 +25,11 @@ function VideoPlayer({ videoId, lazy, timeline, title }: VideoPlayerProps) {
   return (
     <>
       {!isLoaded && (
-        <LazyImage thumbnail={lazy} alt={`영상 썸네일: ${title}`} />
+        <LazyImage
+          thumbnail={lazy}
+          alt={`영상 썸네일: ${title}`}
+          sizes="(min-width: 780px) 716px, 95.65vw"
+        />
       )}
       {isClient && (
         <ReactPlayer
