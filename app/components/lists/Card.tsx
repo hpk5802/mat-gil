@@ -22,7 +22,11 @@ function Card({ channel, lists }: CardInterface) {
           aria-label={`${title} 영상 보러가기`}
         >
           <div className="relative aspect-[1.75/1] w-full">
-            <LazyImage thumbnail={thumbnail} alt={`썸네일: ${title}`} />
+            <LazyImage
+              thumbnail={thumbnail}
+              alt={`썸네일: ${title}`}
+              sizes="(min-width: 780px) 237px, calc(48.48vw - 11px)"
+            />
           </div>
           <div className="h-full bg-card-background p-3 md:h-[5.5rem]">
             <Category keyValue={`${channel}_${position}`} category={category} />
