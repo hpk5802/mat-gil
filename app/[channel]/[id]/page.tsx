@@ -17,11 +17,37 @@ export async function generateMetadata({
   const {
     data: { list },
   } = await axios.get(`${channel}/${id}`);
-  const { title: restaurant } = list;
+  const { title: restaurant, location, address, thumbnail, menu } = list;
 
   const title = `맛길 | 맛집 추천 & 길찾기 | ${channelMap[channel]}`;
   const description = `${restaurant}의 메뉴와 위치를 확인하고, 길찾기 기능을 통해 해당 매장까지 간편하게 찾아가세요!`;
   const imageUrl = 'https://mat-gil.vercel.app/images/logo.png';
+
+  const schemaData = {
+    '@context': 'https://schema.org',
+    '@type': 'Restaurant',
+    address: {
+      '@type': 'PostalAddress',
+      addressCountry: 'KR',
+      addressLocality: location,
+      streetAddress: address,
+    },
+    name: restaurant,
+    description: description,
+    image: thumbnail,
+    hasMenu: {
+      '@type': 'Menu',
+      hasMenuSection: [
+        {
+          '@type': 'MenuSection',
+          hasMenuItem: menu.map((item: string) => ({
+            '@type': 'MenuItem',
+            name: item,
+          })),
+        },
+      ],
+    },
+  };
 
   return {
     title,
@@ -45,6 +71,9 @@ export async function generateMetadata({
       title,
       description,
       images: { url: imageUrl },
+    },
+    other: {
+      'application/ld+json': [JSON.stringify(schemaData)],
     },
   };
 }
