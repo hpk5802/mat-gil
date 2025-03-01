@@ -1,5 +1,4 @@
 User-Agent: *
 Allow: /
-Disallow: /private/
 
 Sitemap: https://mat-gil.vercel.app/sitemap.xml
