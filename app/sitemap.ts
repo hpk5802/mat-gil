@@ -56,40 +56,34 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   return [
     {
-      url: 'https://mat-gil.vercel.app',
-      lastModified: new Date(),
-      changeFrequency: 'daily',
-      priority: 1,
-    },
-    {
       url: 'https://mat-gil.vercel.app/pungja',
       lastModified: new Date(),
       changeFrequency: 'daily',
-      priority: 0.7,
+      priority: 1.0,
     },
     {
       url: 'https://mat-gil.vercel.app/seongsigyeong',
       lastModified: new Date(),
       changeFrequency: 'daily',
-      priority: 0.7,
+      priority: 1.0,
     },
     {
       url: 'https://mat-gil.vercel.app/hongseokcheon',
       lastModified: new Date(),
       changeFrequency: 'daily',
-      priority: 0.7,
+      priority: 1.0,
     },
     {
       url: 'https://mat-gil.vercel.app/haennim',
       lastModified: new Date(),
       changeFrequency: 'daily',
-      priority: 0.7,
+      priority: 1.0,
     },
     {
       url: 'https://mat-gil.vercel.app/baekjongwon',
       lastModified: new Date(),
       changeFrequency: 'daily',
-      priority: 0.7,
+      priority: 1.0,
     },
     ...dynamicPaths,
   ];
