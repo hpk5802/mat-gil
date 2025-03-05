@@ -2,7 +2,7 @@
 > **유명 유튜브 영상 기반 맛집 소개 웹 애플리케이션.** <br/> **개발기간: 2025.01.16 ~ 2025.03.01**
 
 <div align="center">
-<img width="250" alt="image" src="https://github.com/user-attachments/assets/5c04f718-d7f8-45e7-9e6e-b246b30599c5">
+<img width="250" alt="image" src="https://github.com/user-attachments/assets/d2446034-0c63-458e-88b2-dc0b4c27d5d0">
 </div>
 
 ## 배포 주소
@@ -52,9 +52,11 @@ $ npm run dev
 ## 화면 구성 📺
 |  메인(리스트) 페이지  |  소개(상세) 페이지   |
 | :-------------------------------------------: | :------------: |
-|  <img width="329" src="https://github.com/user-attachments/assets/388ad04f-2f01-497b-a849-cc269ccbf246"/> |  <img width="329" src="https://github.com/user-attachments/assets/a65669b3-a41b-43e9-a513-039a2d70b2ba"/>|  
-| 길 찾기 | 
-| <img width="329" src="https://github.com/user-attachments/assets/d256eb02-2759-4578-b831-29be0daabcfc"/>   |
+|  <img width="329" src="https://github.com/user-attachments/assets/388ad04f-2f01-497b-a849-cc269ccbf246"/> |  <img width="329" src="https://github.com/user-attachments/assets/a65669b3-a41b-43e9-a513-039a2d70b2ba"/> |  
+| 길 찾기 | 길 찾기 시연 |
+| <img width="329" src="https://github.com/user-attachments/assets/d256eb02-2759-4578-b831-29be0daabcfc"/>   |  <img width="329" src="https://github.com/user-attachments/assets/da683750-a61f-4829-8d2c-f5569fb6b40e" /> |
+
+
 
 ---
 ## 주요 기능 📦
