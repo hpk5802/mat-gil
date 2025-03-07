@@ -10,8 +10,6 @@ const useFetchData = (
   initialHasNext: boolean,
   nextCursor: number | null,
 ) => {
-  // const { lists, cursors, hasNexts, setLists, setCursor, setHasNext } =
-  //   useListsStore();
   const {
     lists,
     cursors,
