@@ -13,6 +13,7 @@ import DirectionDescription from './DirectionDescription';
 import IconRetry from '@/app/components/icons/IconRetry';
 import IconInfo from '@/app/components/icons/IconInfo';
 import handleGeolocationError from '@/app/utils/handleGeolocationError';
+import useDestinationStore from '@/app/stores/useDestinationStore';
 
 function DirectionWrap() {
   const { dialogRef, openDialog, closeDialog } = useDialog();
@@ -20,6 +21,7 @@ function DirectionWrap() {
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
   const abortControllerRef = useRef<AbortController | null>(null);
+  const destinationData = useDestinationStore((state) => state.destinationData);
 
   const requestCurrentLoaction = async () => {
     if (isLoading) return;
@@ -61,7 +63,7 @@ function DirectionWrap() {
     const latitude = position.coords.latitude;
     const longitude = position.coords.longitude;
     const start = `${longitude},${latitude}`;
-    const goal = sessionStorage.getItem('destination') || '';
+    const goal = `${destinationData?.longitude},${destinationData?.latitude}`;
 
     const { data, isError } = await getRoute(
       start,
@@ -107,7 +109,7 @@ function DirectionWrap() {
     <>
       <button
         type="button"
-        className="loading bg-btn-background my-2 flex h-11 w-full items-center justify-center gap-1 rounded-lg font-semibold"
+        className="loading my-2 flex h-11 w-full items-center justify-center gap-1 rounded-lg bg-btn-background font-semibold"
         onClick={handleFindRouteClick}
         aria-label="현재 위치에서 목적지까지 길 찾기"
         disabled={isLoading}
