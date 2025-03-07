@@ -1,7 +1,8 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect } from 'react';
 import { ChannelResponse, YoutubeData } from '../types/youtube';
 import axios from '@/app/lib/instance';
 import useIntersectionObserver from '@/app/hooks/useIntersectionObserver';
+import useListsStore from '@/app/stores/useListsStore';
 
 const useFetchData = (
   channel: string,
@@ -9,49 +10,51 @@ const useFetchData = (
   initialHasNext: boolean,
   nextCursor: number | null,
 ) => {
-  const [lists, setLists] = useState<YoutubeData[]>(initialLists);
-  const [cursor, setCursor] = useState(nextCursor);
-  const [hasNext, setHasNext] = useState(initialHasNext);
+  const { lists, cursors, hasNexts, setLists, setCursor, setHasNext } =
+    useListsStore();
 
   useEffect(() => {
-    const cachedLists = sessionStorage.getItem(channel);
-    if (cachedLists) {
-      const { lists, cursor, hasNext } = JSON.parse(cachedLists);
-      setLists(lists);
-      setCursor(cursor);
-      setHasNext(hasNext);
-    } else {
-      sessionStorage.setItem(
-        channel,
-        JSON.stringify({ lists, cursor, hasNext }),
-      );
+    if (!lists[channel]) {
+      setLists(channel, initialLists);
     }
-  }, [channel]);
+    if (cursors[channel] === undefined) {
+      setCursor(channel, nextCursor);
+    }
+    if (hasNexts[channel] === undefined) {
+      setHasNext(channel, initialHasNext);
+    }
+  }, [
+    channel,
+    initialLists,
+    initialHasNext,
+    nextCursor,
+    lists,
+    cursors,
+    hasNexts,
+    setLists,
+    setCursor,
+    setHasNext,
+  ]);
 
   const fetchData = useCallback(async () => {
-    if (!hasNext) return;
+    if (!hasNexts[channel]) return;
 
     const { data } = await axios.get<ChannelResponse>(channel, {
-      params: { limit: 12, cursor },
+      params: { limit: 12, cursor: cursors[channel] },
     });
 
-    setLists((prev) => [...prev, ...data.lists]);
-    setCursor(data.nextCursor);
-    setHasNext(data.hasNext);
+    setLists(channel, [...(lists[channel] || null), ...data.lists]);
+    setCursor(channel, data.nextCursor);
+    setHasNext(channel, data.hasNext);
+  }, [channel, lists, cursors, hasNexts, setLists, setCursor, setHasNext]);
 
-    sessionStorage.setItem(
-      channel,
-      JSON.stringify({
-        lists: [...lists, ...data.lists],
-        cursor: data.nextCursor,
-        hasNext: data.hasNext,
-      }),
-    );
-  }, [cursor, hasNext, channel, lists]);
+  const endRef = useIntersectionObserver(fetchData, hasNexts[channel]);
 
-  const endRef = useIntersectionObserver(fetchData, hasNext);
-
-  return { lists, hasNext, endRef };
+  return {
+    lists: lists[channel] || [],
+    hasNext: hasNexts[channel] || false,
+    endRef,
+  };
 };
 
 export default useFetchData;
