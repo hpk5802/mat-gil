@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import MapSkeleton from './MapSkeleton';
+import useDestinationStore from '@/app/stores/useDestinationStore';
 
 interface MapProps {
   address: string;
@@ -10,6 +11,9 @@ interface MapProps {
 function Map({ address }: MapProps) {
   const mapRef = useRef<naver.maps.Map | null>(null);
   const [isLoading, setIsLoading] = useState(true);
+  const setDestinationData = useDestinationStore(
+    (state) => state.setDestinationData,
+  );
 
   const initMap = (lat: number, lng: number) => {
     const map = new naver.maps.Map('map', {
@@ -54,7 +58,7 @@ function Map({ address }: MapProps) {
         const lng = Number(result.x);
         const lat = Number(result.y);
 
-        sessionStorage.setItem('destination', `${lng},${lat}`);
+        setDestinationData({ longitude: lng, latitude: lat });
 
         initMap(lat, lng);
         setIsLoading(false);
@@ -66,7 +70,7 @@ function Map({ address }: MapProps) {
         mapRef.current.destroy();
       }
     };
-  }, [address]);
+  }, [address, setDestinationData]);
 
   return (
     <div className="relative h-[20rem] w-full overflow-hidden rounded-lg md:h-[25rem]">
