@@ -10,8 +10,21 @@ const useFetchData = (
   initialHasNext: boolean,
   nextCursor: number | null,
 ) => {
-  const { lists, cursors, hasNexts, setLists, setCursor, setHasNext } =
-    useListsStore();
+  // const { lists, cursors, hasNexts, setLists, setCursor, setHasNext } =
+  //   useListsStore();
+  const {
+    lists,
+    cursors,
+    hasNexts,
+    setLists,
+    setCursor,
+    setHasNext,
+    initializeState,
+  } = useListsStore();
+
+  useEffect(() => {
+    initializeState();
+  }, [initializeState]);
 
   useEffect(() => {
     if (!lists[channel]) {
@@ -43,7 +56,7 @@ const useFetchData = (
       params: { limit: 12, cursor: cursors[channel] },
     });
 
-    setLists(channel, [...(lists[channel] || null), ...data.lists]);
+    setLists(channel, [...(lists[channel] || []), ...data.lists]);
     setCursor(channel, data.nextCursor);
     setHasNext(channel, data.hasNext);
   }, [channel, lists, cursors, hasNexts, setLists, setCursor, setHasNext]);
