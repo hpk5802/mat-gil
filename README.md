@@ -3,7 +3,9 @@
 
 <div align="center">
 <img width="250" alt="image" src="https://github.com/user-attachments/assets/d2446034-0c63-458e-88b2-dc0b4c27d5d0">
+<img width="500" alt="image" src="https://github.com/user-attachments/assets/08bbc41f-032f-49d2-a671-848f26ee1cb2">
 </div>
+
 
 ## 배포 주소
 
