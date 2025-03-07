@@ -25,14 +25,21 @@ const useFetchData = (
   }, [initializeState]);
 
   useEffect(() => {
-    if (!lists[channel]) {
-      setLists(channel, initialLists);
-    }
-    if (cursors[channel] === undefined) {
-      setCursor(channel, nextCursor);
-    }
-    if (hasNexts[channel] === undefined) {
-      setHasNext(channel, initialHasNext);
+    const sessionStorageData = sessionStorage.getItem('youtubeData');
+    const hasStoreData = sessionStorageData
+      ? JSON.parse(sessionStorageData)
+      : null;
+
+    if (!hasStoreData || !hasStoreData.lists[channel]) {
+      if (!lists[channel]) {
+        setLists(channel, initialLists);
+      }
+      if (cursors[channel] === undefined) {
+        setCursor(channel, nextCursor);
+      }
+      if (hasNexts[channel] === undefined) {
+        setHasNext(channel, initialHasNext);
+      }
     }
   }, [
     channel,

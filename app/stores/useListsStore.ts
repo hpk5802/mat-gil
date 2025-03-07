@@ -40,7 +40,7 @@ const useListsStore = create<ListsStore>((set) => ({
       const updatedCursors = { ...state.cursors, [channel]: cursor };
       sessionStorage.setItem(
         'youtubeData',
-        JSON.stringify({ ...state, cursor: updatedCursors }),
+        JSON.stringify({ ...state, cursors: updatedCursors }),
       );
       return { cursors: updatedCursors };
     }),
@@ -50,7 +50,7 @@ const useListsStore = create<ListsStore>((set) => ({
       const updatedHasNexts = { ...state.hasNexts, [channel]: hasNext };
       sessionStorage.setItem(
         'youtubeData',
-        JSON.stringify({ ...state, hasNext: updatedHasNexts }),
+        JSON.stringify({ ...state, hasNexts: updatedHasNexts }),
       );
       return { hasNexts: updatedHasNexts };
     }),
