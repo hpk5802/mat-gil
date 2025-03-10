@@ -1,5 +1,5 @@
 # 맛길(mat-gil)
-> **유명 유튜브 영상 기반 맛집 소개 웹 애플리케이션.** <br/> **개발기간: 2025.01.16 ~ 2025.03.01**
+> **유명 유튜브 영상 기반 맛집 소개 웹 애플리케이션.** <br/> **개발기간: 2025.01 ~ 2025.03**
 
 <div align="center">
 <img width="250" alt="image" src="https://github.com/user-attachments/assets/d2446034-0c63-458e-88b2-dc0b4c27d5d0">
