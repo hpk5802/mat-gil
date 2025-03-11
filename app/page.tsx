@@ -1,4 +1,5 @@
 import ChannelList from '@/app/components/landing/ChannelList';
+import LinkToLastVisited from '@/app/components/landing/LinkToLastVisited';
 
 export default function Home() {
   return (
@@ -15,6 +16,7 @@ export default function Home() {
           <br />
           특별한 맛의 여정이 여러분을 기다리고 있습니다!
         </p>
+        <LinkToLastVisited />
       </section>
       <section className="relative w-full" aria-labelledby="channel-title">
         <h2 id="channel-title" className="text-xl font-semibold">
