@@ -16,7 +16,7 @@ export default function Home() {
           특별한 맛의 여정이 여러분을 기다리고 있습니다!
         </p>
       </section>
-      <section className="w-ful" aria-labelledby="channel-title">
+      <section className="w-full" aria-labelledby="channel-title">
         <h2 id="channel-title" className="text-xl">
           채널 목록
         </h2>
