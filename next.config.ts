@@ -13,15 +13,6 @@ const nextConfig: NextConfig = {
       },
     ],
   },
-  async redirects() {
-    return [
-      {
-        source: '/',
-        destination: '/pungja',
-        permanent: true,
-      },
-    ];
-  },
 };
 
 export default nextConfig;
