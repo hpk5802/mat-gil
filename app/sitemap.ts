@@ -56,6 +56,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   return [
     {
+      url: 'https://mat-gil.vercel.app',
+      lastModified: new Date(),
+      changeFrequency: 'daily',
+      priority: 1.0,
+    },
+    {
       url: 'https://mat-gil.vercel.app/pungja',
       lastModified: new Date(),
       changeFrequency: 'daily',
