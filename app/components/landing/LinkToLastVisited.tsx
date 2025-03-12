@@ -15,7 +15,7 @@ function LinkToLastVisited() {
   if (!lastVisited)
     return (
       <div
-        className="relative inline-flex h-11 w-44 items-center justify-center gap-1 rounded-lg bg-orange-400 opacity-50"
+        className="relative inline-flex h-11 w-44 items-center justify-center gap-1 rounded-lg bg-btn-background opacity-50"
         aria-live="polite"
       >
         <p className="sr-only">최근 방문한 맛집 데이터를 불러오는 중입니다.</p>
@@ -27,7 +27,7 @@ function LinkToLastVisited() {
   return (
     <Link
       href={`/${lastVisited}`}
-      className="inline-flex h-11 w-44 items-center justify-center gap-2 rounded-lg bg-orange-400"
+      className="inline-flex h-11 w-44 items-center justify-center gap-2 rounded-lg bg-btn-background"
       title="마지막으로 방문한 채널 페이지로 이동"
       aria-label="마지막으로 방문한 채널 페이지로 이동"
       prefetch={false}
