@@ -16,7 +16,6 @@ interface RecommandedProps {
 }
 
 function RecommandedList({ data }: RecommandedProps) {
-  console.log(data);
   const scrollRef = useRef<HTMLUListElement | null>(null);
   return (
     <>
