@@ -20,16 +20,29 @@ function RecommandedSchema({ data }: RecommandedSchemaProps) {
           '@type': 'ListItem',
           position: index + 1,
           item: {
-            '@type': 'VideoObject',
+            '@type': 'Restaurant',
             name: item.title,
-            description: `${category} - ${item.location}`,
-            thumbnailUrl: item.thumbnail,
-            contentUrl: `https://mat-gil.vercel.app/${channel}/${item.position}`,
-            embedUrl: `https://mat-gil.vercel.app/${channel}/${item.position}`,
-            keywords: category,
-            contentLocation: {
-              '@type': 'Place',
-              name: item.address,
+            description: `${item.title}의 메뉴와 위치를 확인하고, 길찾기 기능을 통해 해당 매장까지 간편하게 찾아가세요!`,
+            image: item.thumbnail,
+            address: {
+              '@type': 'PostalAddress',
+              addressCountry: 'KR',
+              addressLocality: item.location,
+              streetAddress: item.address,
+            },
+            video: {
+              '@type': 'VideoObject',
+              name: item.title,
+              description: `${category} - ${item.location}`,
+              thumbnailUrl: item.thumbnail,
+              uploadDate: new Date().toISOString(),
+              contentUrl: `https://mat-gil.vercel.app/${channel}/${item.position}`,
+              embedUrl: `https://mat-gil.vercel.app/${channel}/${item.position}`,
+              keywords: category,
+              contentLocation: {
+                '@type': 'Place',
+                name: item.address,
+              },
             },
           },
         };
