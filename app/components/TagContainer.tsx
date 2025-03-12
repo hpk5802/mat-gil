@@ -8,7 +8,7 @@ function TagContainer({ children }: PropsWithChildren) {
     <nav className="mx-auto mt-3 flex max-w-[46.25rem] items-center gap-2 px-3 md:px-0">
       <ul
         ref={scrollRef}
-        className="hide-scroll flex touch-pan-x flex-nowrap gap-x-2 overflow-x-scroll md:overflow-hidden"
+        className="flex touch-pan-x flex-nowrap gap-x-2 overflow-x-scroll md:overflow-hidden"
         aria-label="태그 목록"
       >
         {children}

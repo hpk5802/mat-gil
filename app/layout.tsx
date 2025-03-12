@@ -61,6 +61,28 @@ export const metadata: Metadata = {
     '길찾기',
     '맛집 길찾기',
   ],
+  openGraph: {
+    title: '맛길 | 맛집 추천 & 길찾기',
+    description:
+      '유명 유튜브 영상 기반 맛집 위치, 메뉴, 카테고리가 한눈에! 길찾기 기능으로 원하는 맛집까지 바로 이동해보세요.',
+    url: 'https://mat-gil.vercel.app',
+    images: {
+      url: 'https://mat-gil.vercel.app/images/logo.png',
+      width: 1200,
+      height: 630,
+      alt: '맛길 | 맛집 추천 & 길찾기',
+    },
+    type: 'website',
+    siteName: '맛길',
+    locale: 'ko_KR',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: '맛길 | 맛집 추천 & 길찾기',
+    description:
+      '유명 유튜브 영상 기반 맛집 위치, 메뉴, 카테고리가 한눈에! 길찾기 기능으로 원하는 맛집까지 바로 이동해보세요.',
+    images: { url: 'https://mat-gil.vercel.app/images/logo.png' },
+  },
   robots: { index: true, follow: true },
   verification: {
     google: '1Osq17NvlbMi8cqt4h7IL_MG--hzY-1wTAkTgA4I1hI',
