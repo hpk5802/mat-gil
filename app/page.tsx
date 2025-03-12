@@ -1,7 +1,11 @@
 import ChannelList from '@/app/components/landing/ChannelList';
 import LinkToLastVisited from '@/app/components/landing/LinkToLastVisited';
+import { getRecommandedList } from '@/app/utils/getRecommandedList';
+import RecommandedList from '@/app/components/landing/RecommandedList';
 
-export default function Home() {
+export default async function Home() {
+  const recommandedList = await getRecommandedList();
+
   return (
     <main className="mx-auto flex flex-wrap gap-y-6 px-3 py-5 text-white md:w-[46.25rem] md:px-0">
       <section className="w-full text-center" aria-labelledby="main-title">
@@ -23,6 +27,12 @@ export default function Home() {
           채널 목록
         </h2>
         <ChannelList />
+      </section>
+      <section className="relative w-full" aria-labelledby="recommand-title">
+        <h2 id="recommand-title" className="text-xl font-semibold">
+          추천 맛집
+        </h2>
+        <RecommandedList data={recommandedList} />
       </section>
     </main>
   );
