@@ -7,6 +7,7 @@ import axios from '@/app/lib/instance';
 import Menu from '@/app/components/menu/Menu';
 import { Metadata } from 'next';
 import channelMap from '@/app/constants/channelMap';
+import DetailSchema from '@/app/components/seo/DetailSchema';
 
 export async function generateMetadata({
   params,
@@ -17,37 +18,11 @@ export async function generateMetadata({
   const {
     data: { list },
   } = await axios.get(`${channel}/${id}`);
-  const { title: restaurant, location, address, thumbnail, menu } = list;
+  const { title: restaurant } = list;
 
   const title = `맛길 | 맛집 추천 & 길찾기 | ${channelMap[channel]}`;
   const description = `${restaurant}의 메뉴와 위치를 확인하고, 길찾기 기능을 통해 해당 매장까지 간편하게 찾아가세요!`;
   const imageUrl = 'https://mat-gil.vercel.app/images/logo.png';
-
-  const schemaData = {
-    '@context': 'https://schema.org',
-    '@type': 'Restaurant',
-    address: {
-      '@type': 'PostalAddress',
-      addressCountry: 'KR',
-      addressLocality: location,
-      streetAddress: address,
-    },
-    name: restaurant,
-    description: description,
-    image: thumbnail,
-    hasMenu: {
-      '@type': 'Menu',
-      hasMenuSection: [
-        {
-          '@type': 'MenuSection',
-          hasMenuItem: menu.map((item: string) => ({
-            '@type': 'MenuItem',
-            name: item,
-          })),
-        },
-      ],
-    },
-  };
 
   return {
     title,
@@ -72,9 +47,6 @@ export async function generateMetadata({
       description,
       images: { url: imageUrl },
     },
-    other: {
-      'application/ld+json': [JSON.stringify(schemaData)],
-    },
   };
 }
 
@@ -89,10 +61,17 @@ async function DetailPage({
     data: { list },
   } = await axios.get(`${channel}/${id}`);
 
-  const { videoId, thumbnail, timeline, address, title, menu } = list;
+  const { videoId, thumbnail, timeline, address, title, menu, location } = list;
 
   return (
     <>
+      <DetailSchema
+        title={title}
+        location={location}
+        address={address}
+        thumbnail={thumbnail}
+        menu={menu}
+      />
       <div className="mx-auto max-w-[46.25rem] px-3 py-5 text-white">
         <section aria-label="유튜브 영상">
           <div className="relative aspect-[1.75/1] w-full overflow-hidden">
