@@ -3,6 +3,8 @@ import LinkToLastVisited from '@/app/components/landing/LinkToLastVisited';
 import { getRecommandedList } from '@/app/utils/getRecommandedList';
 import RecommandedList from '@/app/components/landing/RecommandedList';
 
+export const dynamic = 'force-dynamic';
+
 export default async function Home() {
   const recommandedList = await getRecommandedList();
 
