@@ -24,6 +24,7 @@ function RecommandedSchema({ data }: RecommandedSchemaProps) {
             name: item.title,
             description: `${category} - ${item.location}`,
             thumbnailUrl: item.thumbnail,
+            uploadDate: new Date().toISOString(),
             contentUrl: `https://mat-gil.vercel.app/${channel}/${item.position}`,
             embedUrl: `https://mat-gil.vercel.app/${channel}/${item.position}`,
             keywords: category,
