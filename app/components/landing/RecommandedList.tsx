@@ -15,8 +15,7 @@ interface RecommandedProps {
   }[];
 }
 
-function RecomandedList({ data }: RecommandedProps) {
-  console.log(data);
+function RecommandedList({ data }: RecommandedProps) {
   const scrollRef = useRef<HTMLUListElement | null>(null);
   return (
     <>
@@ -31,7 +30,7 @@ function RecomandedList({ data }: RecommandedProps) {
         {data.map(({ channel, list }) =>
           list.map(({ thumbnail, category, title, location, position }) => (
             <li
-              className="relative w-64 flex-shrink-0 bg-card-background"
+              className="relative w-64 flex-shrink-0 overflow-hidden rounded-xl bg-card-background"
               key={`${channel}_${title}`}
             >
               <Link
@@ -67,4 +66,4 @@ function RecomandedList({ data }: RecommandedProps) {
   );
 }
 
-export default RecomandedList;
+export default RecommandedList;
