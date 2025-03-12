@@ -2,6 +2,7 @@ import axios from '@/app/lib/instance';
 import ListContainer from '@/app/components/lists/ListContainer';
 import { Metadata } from 'next';
 import channelMap from '@/app/constants/channelMap';
+import ListSchema from '@/app/components/seo/ListSchema';
 
 export async function generateMetadata({
   params,
@@ -54,12 +55,15 @@ async function ChannelHome({
   });
 
   return (
-    <ListContainer
-      channel={channel}
-      hasNext={hasNext}
-      nextCursor={nextCursor}
-      lists={lists}
-    />
+    <>
+      <ListSchema channel={channel} lists={lists} />
+      <ListContainer
+        channel={channel}
+        hasNext={hasNext}
+        nextCursor={nextCursor}
+        lists={lists}
+      />
+    </>
   );
 }
 
