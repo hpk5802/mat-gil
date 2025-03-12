@@ -3,6 +3,7 @@
 import { YoutubeData } from '@/app/types/youtube';
 import Card from './Card';
 import useFetchData from '@/app/hooks/useFetchData';
+import { useEffect } from 'react';
 
 function ListContainer({
   lists: initialLists,
@@ -21,6 +22,10 @@ function ListContainer({
     initialHasNext,
     nextCursor,
   );
+
+  useEffect(() => {
+    localStorage.setItem('lastVisited', channel);
+  }, [channel]);
 
   return (
     <ul
