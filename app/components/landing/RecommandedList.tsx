@@ -30,7 +30,7 @@ function RecommandedList({ data }: RecommandedProps) {
         {data.map(({ channel, list }) =>
           list.map(({ thumbnail, category, title, location, position }) => (
             <li
-              className="relative w-64 flex-shrink-0 bg-card-background"
+              className="relative w-64 flex-shrink-0 overflow-hidden rounded-xl bg-card-background"
               key={`${channel}_${title}`}
             >
               <Link

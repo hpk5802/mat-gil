@@ -4,7 +4,7 @@ import channelList from '@/app/constants/channelList';
 import LazyImage from '@/app/components/common/LazyImage';
 import Link from 'next/link';
 import { useRef } from 'react';
-import ScrollButton from '../common/ScrollButton';
+import ScrollButton from '@/app/components/common/ScrollButton';
 
 function ChannelList() {
   const scrollRef = useRef<HTMLUListElement | null>(null);
@@ -20,7 +20,7 @@ function ChannelList() {
       >
         {channelList.map(({ key, name, image }) => (
           <li
-            className="relative w-64 flex-shrink-0 bg-card-background"
+            className="relative w-64 flex-shrink-0 overflow-hidden rounded-xl bg-card-background"
             key={`channel_${key}`}
             tabIndex={0}
           >
