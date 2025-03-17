@@ -53,11 +53,13 @@ $ npm run dev
 
 ---
 ## 화면 구성 📺
-|  메인(리스트) 페이지  |  소개(상세) 페이지   |
+|  메인 페이지  |  채널(리스트) 페이지   |
 | :-------------------------------------------: | :------------: |
-|  <img width="329" src="https://github.com/user-attachments/assets/388ad04f-2f01-497b-a849-cc269ccbf246"/> |  <img width="329" src="https://github.com/user-attachments/assets/a65669b3-a41b-43e9-a513-039a2d70b2ba"/> |  
-| 길 찾기 | 길 찾기 시연 |
-| <img width="329" src="https://github.com/user-attachments/assets/d256eb02-2759-4578-b831-29be0daabcfc"/>   |  <img width="329" src="https://github.com/user-attachments/assets/da683750-a61f-4829-8d2c-f5569fb6b40e" /> |
+| <img width="329" src="https://github.com/user-attachments/assets/7e4dafcd-cfff-44f2-9dd2-bc95457d2604">  |  <img width="329" src="https://github.com/user-attachments/assets/388ad04f-2f01-497b-a849-cc269ccbf246"/>  |  
+| 상세 페이지 | 길 찾기 |
+| <img width="329" src="https://github.com/user-attachments/assets/a65669b3-a41b-43e9-a513-039a2d70b2ba"/> |  <img width="329" src="https://github.com/user-attachments/assets/d256eb02-2759-4578-b831-29be0daabcfc"/>  |
+| 길 찾기 시연 |
+| <img width="329" src="https://github.com/user-attachments/assets/da683750-a61f-4829-8d2c-f5569fb6b40e" /> |
 
 
 
