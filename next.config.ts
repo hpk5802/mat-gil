@@ -8,7 +8,7 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'sprint-fe-project.s3.ap-northeast-2.amazonaws.com/Coworkers',
+        hostname: 'sprint-fe-project.s3.ap-northeast-2.amazonaws.com',
         pathname: '/Coworkers/user/1819/**',
       },
     ],
