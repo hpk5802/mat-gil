@@ -22,7 +22,7 @@ function LazyImage({ thumbnail, alt, sizes }: LazyImageProps) {
         fill
         sizes={sizes}
         alt={alt}
-        priority
+        loading="lazy"
         onLoad={() => setIsLoading(false)}
       />
     </>
