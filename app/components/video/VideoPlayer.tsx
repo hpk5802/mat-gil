@@ -4,7 +4,6 @@ import { useEffect, useState } from 'react';
 import ReactPlayer from 'react-player/lazy';
 import convertTimeToSeconds from '@/app/utils/convertTimeToSeconds';
 import LazyImage from '@/app/components/common/LazyImage';
-import { getImageServerUrlFromThumbnail } from '@/app/utils/getImageServerUrlFromThumbnail';
 interface VideoPlayerProps {
   videoId: string;
   lazy: string;
@@ -26,7 +25,7 @@ function VideoPlayer({ videoId, lazy, timeline, title }: VideoPlayerProps) {
     <>
       {!isLoaded && (
         <LazyImage
-          thumbnail={getImageServerUrlFromThumbnail(lazy)}
+          thumbnail={lazy}
           alt={`영상 썸네일: ${title}`}
           sizes="(min-width: 780px) 716px, 95.65vw"
         />
