@@ -12,6 +12,7 @@ const nextConfig: NextConfig = {
         pathname: '/Coworkers/user/1819/**',
       },
     ],
+    unoptimized: true,
   },
 };
 
