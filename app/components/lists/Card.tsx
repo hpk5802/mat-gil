@@ -3,7 +3,6 @@ import Link from 'next/link';
 import IconMarker from '@/app/components/icons/IconMarker';
 import Category from './Category';
 import LazyImage from '@/app/components/common/LazyImage';
-import { getImageServerUrlFromThumbnail } from '@/app/utils/getImageServerUrlFromThumbnail';
 interface CardInterface {
   channel: string;
   lists: YoutubeData[];
@@ -23,7 +22,7 @@ function Card({ channel, lists }: CardInterface) {
         >
           <div className="relative aspect-[1.75/1] w-full">
             <LazyImage
-              thumbnail={getImageServerUrlFromThumbnail(thumbnail)}
+              thumbnail={thumbnail}
               alt={`썸네일: ${title}`}
               sizes="(min-width: 780px) 237px, calc(48.48vw - 11px)"
             />
