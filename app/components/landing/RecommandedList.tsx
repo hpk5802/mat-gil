@@ -7,6 +7,7 @@ import { useRef } from 'react';
 import { YoutubeData } from '@/app/types/youtube';
 import Category from '@/app/components/lists/Category';
 import IconMarker from '@/app/components/icons/IconMarker';
+import { getImageServerUrlFromThumbnail } from '@/app/utils/getImageServerUrlFromThumbnail';
 
 interface RecommandedProps {
   data: {
@@ -39,7 +40,7 @@ function RecommandedList({ data }: RecommandedProps) {
               >
                 <div className="relative h-36 w-full">
                   <LazyImage
-                    thumbnail={thumbnail}
+                    thumbnail={getImageServerUrlFromThumbnail(thumbnail)}
                     alt={`썸네일: ${title}`}
                     sizes="260px"
                   />
