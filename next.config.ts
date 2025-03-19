@@ -8,7 +8,7 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'i.ytimg.com',
+        hostname: 'optimized-images-mat-gil.netlify.app',
         pathname: '/**',
       },
     ],
