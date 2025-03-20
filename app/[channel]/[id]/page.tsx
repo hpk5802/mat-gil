@@ -8,6 +8,7 @@ import Menu from '@/app/components/menu/Menu';
 import { Metadata } from 'next';
 import channelMap from '@/app/constants/channelMap';
 import DetailSchema from '@/app/components/seo/DetailSchema';
+import BlogWrap from '@/app/components/blog/BlogWrap';
 
 export async function generateMetadata({
   params,
@@ -101,6 +102,9 @@ async function DetailPage({
           <Map address={address} />
         </section>
       </div>
+      <section aria-label="블로그 포스팅">
+        <BlogWrap query={title} />
+      </section>
     </>
   );
 }
