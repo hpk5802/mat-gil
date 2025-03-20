@@ -5,6 +5,10 @@ import { BlogData } from '@/app/types/blog';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 
+function removeHtml(text: string) {
+  return text.replace(/<[^>]*>/g, '');
+}
+
 function BlogWrap({ query }: { query: string }) {
   const [items, setItems] = useState<BlogData[]>([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -29,8 +33,8 @@ function BlogWrap({ query }: { query: string }) {
       ) : (
         items.map(({ title, link, description, postdate, bloggername }) => (
           <Link href={link} key={title} className="text-white">
-            <h3>{title}</h3>
-            <p>{description}</p>
+            <h3>{removeHtml(title)}</h3>
+            <p>{removeHtml(description)}</p>
             <p>{postdate}</p>
             <p>{bloggername}</p>
           </Link>
