@@ -9,6 +9,12 @@ function removeHtml(text: string) {
   return text.replace(/<[^>]*>/g, '');
 }
 
+function decodeHtml(html: string) {
+  const txt = document.createElement('textarea');
+  txt.innerHTML = html;
+  return txt.value;
+}
+
 function BlogWrap({ query }: { query: string }) {
   const [items, setItems] = useState<BlogData[]>([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -33,8 +39,8 @@ function BlogWrap({ query }: { query: string }) {
       ) : (
         items.map(({ title, link, description, postdate, bloggername }) => (
           <Link href={link} key={title} className="text-white">
-            <h3>{removeHtml(title)}</h3>
-            <p>{removeHtml(description)}</p>
+            <h3>{decodeHtml(removeHtml(title))}</h3>
+            <p>{decodeHtml(removeHtml(description))}</p>
             <p>{postdate}</p>
             <p>{bloggername}</p>
           </Link>
