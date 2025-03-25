@@ -1,12 +1,11 @@
 import { useCallback, useEffect } from 'react';
-import { ChannelResponse, YoutubeData } from '../types/youtube';
+import { ChannelResponse } from '@/app/types/youtube';
 import axios from '@/app/lib/instance';
 import useIntersectionObserver from '@/app/hooks/useIntersectionObserver';
 import useListsStore from '@/app/stores/useListsStore';
 
 const useFetchData = (
   channel: string,
-  initialLists: YoutubeData[],
   initialHasNext: boolean,
   nextCursor: number | null,
 ) => {
@@ -32,7 +31,7 @@ const useFetchData = (
 
     if (!hasStoreData || !hasStoreData.lists[channel]) {
       if (!lists[channel]) {
-        setLists(channel, initialLists);
+        setLists(channel, []);
       }
       if (cursors[channel] === undefined) {
         setCursor(channel, nextCursor);
@@ -43,7 +42,6 @@ const useFetchData = (
     }
   }, [
     channel,
-    initialLists,
     initialHasNext,
     nextCursor,
     lists,
