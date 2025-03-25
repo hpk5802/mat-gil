@@ -3,6 +3,7 @@ import ListContainer from '@/app/components/lists/ListContainer';
 import { Metadata } from 'next';
 import channelMap from '@/app/constants/channelMap';
 import ListSchema from '@/app/components/seo/ListSchema';
+import Card from '@/app/components/lists/Card';
 
 export async function generateMetadata({
   params,
@@ -57,12 +58,18 @@ async function ChannelHome({
   return (
     <>
       <ListSchema channel={channel} lists={lists} />
-      <ListContainer
-        channel={channel}
-        hasNext={hasNext}
-        nextCursor={nextCursor}
-        lists={lists}
-      />
+      <ul
+        className="mx-auto flex flex-wrap gap-x-[3%] gap-y-4 px-3 py-5 md:w-[46.25rem] md:gap-x-[2%] md:gap-y-5 md:px-0"
+        role="list"
+        aria-label="맛집 목록"
+      >
+        <Card channel={channel} lists={lists} />
+        <ListContainer
+          channel={channel}
+          hasNext={hasNext}
+          nextCursor={nextCursor}
+        />
+      </ul>
     </>
   );
 }
