@@ -51,6 +51,9 @@ $ npm run dev
 ### Deploy
 ![Vercel](https://img.shields.io/badge/vercel-%23000000.svg?style=for-the-badge&logo=vercel&logoColor=white)
 
+### Image CDN
+![NETLIFY](https://img.shields.io/badge/netlify-%2300C7B7.svg?&style=for-the-badge&logo=netlify&logoColor=white)
+
 ---
 ## 화면 구성 📺
 |  메인 페이지  |  채널(리스트) 페이지   |
